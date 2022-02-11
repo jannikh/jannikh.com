@@ -1,0 +1,23 @@
+{
+	"name": "jannikh.com",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"build-css": "tailwindcss build src/styles.css -o styles.css"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jannikh/jannikh.com.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/jannikh/jannikh.com/issues"
+	},
+	"homepage": "https://github.com/jannikh/jannikh.com#readme",
+	"dependencies": {
+		"tailwindcss": "^3.0.22"
+	}
+}
