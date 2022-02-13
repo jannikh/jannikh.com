@@ -4,14 +4,19 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Jannik Hofmann - Career</title>
 	<link rel="stylesheet" href="../../build/styles.css">
-	<script>
-		window.onload=function(){function a(a,b){var c=/^(?:file):/,d=new XMLHttpRequest,e=0;d.onreadystatechange=function(){4==d.readyState&&(e=d.status),c.test(location.href)&&d.responseText&&(e=200),4==d.readyState&&200==e&&(a.outerHTML=d.responseText)};try{d.open("GET",b,!0),d.send()}catch(f){}}var b,c=document.getElementsByTagName("*");for(b in c)c[b].hasAttribute&&c[b].hasAttribute("data-include")&&a(c[b],c[b].getAttribute("data-include"))};
-		// from https://github.com/LexmarkWeb/csi.js/blob/master/csi.min.js
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script> 
+		$(function(){
+		  $("#header").load("../../src/header.html"); 
+		});
+		$(function(){
+		  $("#footer").load("../../src/footer.html"); 
+		});
 	</script>
 </head>
 <body class="text-textc" lang="en">
 	<div class=""> <!-- md:grid md:grid-cols-3 content wrapper -->
-		<div data-include="../../src/header.html"></div>
+		<div id="header"></div>
 
 		<main class="min-h-screen px-3 xs:px-6 smm:px-12 mdd:px-16 xl:px-24 py-6 md:col-span-2 bg-slate-200">
 			<header>
@@ -101,7 +106,7 @@
 <div><model-viewer style="mix-blend-mode: multiply; width: 100%; height: 1000px" bounds="tight" src="../../../3d-objects/ThanosEmptyUV.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="../../../3d-objects/poster.webp" shadow-intensity="1" environment-image="../../../3d-objects/spruit_sunrise_1k_HDR.hdr" camera-orbit="-742.2deg 89.96deg auto" exposure="0.96"><div class="progress-bar hide" slot="progress-bar"><div class="update-bar"></div></div></model-viewer></div> -->
 
 		</main>
-		<div data-include="../../src/footer.html"></div>
+		<div id="footer"></div>
 	</div>
 </body>
 </html>
