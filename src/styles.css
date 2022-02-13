@@ -26,8 +26,10 @@ sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 */
 .card:hover > div span:first-of-type { @apply text-black }
 .card > div span:last-of-type { @apply block text-gray-500 text-sm italic }
 
+.pagetitle { @apply border-slate-400 border-b text-primary-700 text-opacity-80 text-5xl font-semibold mb-5 pb-1 small-caps }
+
 .badge, .hiddenbadge { @apply text-white bg-gray-800 text-xs font-bold rounded-br-lg !p-2 !pt-1 absolute top-0 max-h-6 shadow-sm opacity-70 transition ease-in-out duration-150 !bg-opacity-100 }
 .hiddenbadge { @apply opacity-0 }
 div:hover > .hiddenbadge { opacity: 0.8 !important}
 .button { @apply rounded-full py-2 px-3 uppercase font-bold cursor-pointer tracking-wider hover:bg-red-200 transition ease-out duration-150 transform hover:scale-125 }
-.main-button { @apply w-auto text-lg text-center font-bold rounded-full py-2 px-3 cursor-pointer tracking-wide bg-remindful-500 hover:bg-remindful-600 text-slate-100 transition ease-out duration-150 transform hover:scale-101 shadow-md hover:shadow-xl }
+.main-button { @apply w-auto text-lg text-center font-bold rounded-full py-2 px-3 cursor-pointer tracking-wide bg-primary-500 hover:bg-primary-600 text-slate-100 transition ease-out duration-150 transform hover:scale-101 shadow-md hover:shadow-xl }
