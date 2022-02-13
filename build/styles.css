@@ -630,6 +630,26 @@ Ensure the default browser behavior of the `hidden` attribute.
   min-height: 100vh;
 }
 
+.min-h-\[100vh-2\.5rem\] {
+  min-height: 100vh - 2.5rem;
+}
+
+.min-h-\[calc\(100vh-2\.5rem\)\] {
+  min-height: calc(100vh - 2.5rem);
+}
+
+.min-h-\[calc\(100vh-\(10\+52\)\/4\)\] {
+  min-height: calc(100vh - (10 + 52) / 4);
+}
+
+.min-h-\[calc\(100vh-\(10rem\+52rem\)\/4\)\] {
+  min-height: calc(100vh - (10rem + 52rem) / 4);
+}
+
+.min-h-\[calc\(100vh-\(10rem\+2rem\+52rem\)\/4\)\] {
+  min-height: calc(100vh - (10rem + 2rem + 52rem) / 4);
+}
+
 .w-full {
   width: 100%;
 }
@@ -1247,6 +1267,18 @@ div:hover > .hiddenbadge {
     height: 7rem;
   }
 
+  .sm\:min-h-\[calc\(100vh-\(10\+28\)\/4\)\] {
+    min-height: calc(100vh - (10 + 28) / 4);
+  }
+
+  .sm\:min-h-\[calc\(100vh-\(10rem\+28rem\)\/4\)\] {
+    min-height: calc(100vh - (10rem + 28rem) / 4);
+  }
+
+  .sm\:min-h-\[calc\(100vh-\(10rem\+2rem\+28rem\)\/4\)\] {
+    min-height: calc(100vh - (10rem + 2rem + 28rem) / 4);
+  }
+
   .sm\:w-0\.5 {
     width: 0.125rem;
   }
@@ -1354,6 +1386,18 @@ div:hover > .hiddenbadge {
 
   .lg\:h-12 {
     height: 3rem;
+  }
+
+  .lg\:min-h-\[calc\(100vh-\(10\+12\)\/4\)\] {
+    min-height: calc(100vh - (10 + 12) / 4);
+  }
+
+  .lg\:min-h-\[calc\(100vh-\(10rem\+12rem\)\/4\)\] {
+    min-height: calc(100vh - (10rem + 12rem) / 4);
+  }
+
+  .lg\:min-h-\[calc\(100vh-\(10rem\+2rem\+12rem\)\/4\)\] {
+    min-height: calc(100vh - (10rem + 2rem + 12rem) / 4);
   }
 
   .lg\:w-auto {
