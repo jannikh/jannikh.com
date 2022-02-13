@@ -14,6 +14,19 @@
 	font-variant-caps: small-caps;
 }
 
+.text-shadow { text-shadow: 0 2px 4px rgba(0,0,0,0.10); }
+.text-shadow-md { text-shadow: 0 4px 8px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08); }
+.text-shadow-lg { text-shadow: 0 15px 30px rgba(0,0,0,0.11), 0 5px 15px rgba(0,0,0,0.08); }
+.text-shadow-xl { text-shadow: 0 10px 50px rgba(0,0,0,0.21), 0 5px 20px rgba(0,0,0,0.18); }
+.text-shadow-none { text-shadow: none; }
+
+.mainpaddingx-wide { @apply px-3 xs:px-6 smm:px-12 mdd:px-16 xl:px-24 }
+.mainpaddingx { @apply px-3 xs:px-6 smm:px-12 mdd:px-[calc((100vw-900px)/2+3rem)] }
+.right-mainpaddingx { @apply right-3 xs:right-6 smm:right-12 mdd:right-16 xl:right-24 }
+.right-sm-mainpaddingx { @apply sm:right-12 mdd:right-16 xl:right-24 }
+.mainarea { @apply min-h-[calc(100vh-(10rem+6rem+52rem)/4)] sm:min-h-[calc(100vh-(10rem+6rem+28rem)/4)] lg:min-h-[calc(100vh-(10rem+6rem+12rem)/4)] bg-slate-200 mainpaddingx py-6 }
+.mainarea-wide { @apply min-h-[calc(100vh-(10rem+6rem+52rem)/4)] sm:min-h-[calc(100vh-(10rem+6rem+28rem)/4)] lg:min-h-[calc(100vh-(10rem+6rem+12rem)/4)] bg-slate-200 mainpaddingx-wide py-6 }
+
 .cardgrid { @apply mt-8 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 }
 /* with md:navigation on left third:
 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 */
@@ -27,6 +40,10 @@ sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 */
 .card > div span:last-of-type { @apply block text-gray-500 text-sm italic }
 
 .pagetitle { @apply border-slate-400 border-b text-primary-700 text-opacity-80 text-5xl font-semibold mb-5 pb-1 small-caps }
+
+.text > p {
+	@apply mb-4
+}
 
 .badge, .hiddenbadge { @apply text-white bg-gray-800 text-xs font-bold rounded-br-lg !p-2 !pt-1 absolute top-0 max-h-6 shadow-sm opacity-70 transition ease-in-out duration-150 !bg-opacity-100 }
 .hiddenbadge { @apply opacity-0 }
