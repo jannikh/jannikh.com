@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>3D Modelling Thanos - Jannik Hofmann</title>
+	<link rel="stylesheet" href="../../../build/styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script> 
+		$(function(){
+		  $("#header").load("../../../src/header.html"); 
+		});
+		$(function(){
+		  $("#footer").load("../../../src/footer.html"); 
+		});
+	</script>
+</head>
+<body class="text-textc" lang="en">
+	<div class=""> <!-- md:grid md:grid-cols-3 content wrapper -->
+		<div id="header"></div>
+
+		<header>
+			<a href=".." title="See list of projects"><div class="backlink"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline -mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+			  </svg>&ensp;list of projects</div></a>
+			<div class="h-[calc(100vh-10rem)] overflow-hidden -mt-3 pt-3 relative">
+				<!-- <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
+				<script>
+					// Accepts any class name
+					var rellax = new Rellax('.rellax');
+				</script> -->
+
+				<div class="absolute bottom-0 top-0 left-0 right-0 bg-thanos-700">
+					<div class="absolute bottom-0 top-0 left-0 right-0 bg-contain bg-center bg-fixed bg-no-repeat shadow-inner-lg-up" style="background-image: url('../../../img/thanos.png'); background-origin: content-box;"></div>
+					<div class="bg-gradient-to-b from-transparent to-[#00000077] opacity-100 hover:opacity-100 w-full h-full"></div>
+				</div>
+				<!-- <img class="z-20 rounded-full shadow-xl w-48 -mr-24 absolute bottom-1/2 right-1/2 sm:bottom-32 sm:mr-auto right-sm-mainpaddingx md:bottom-20 lg:right-1/3 md:w-72 lg:-mr-36" src="../../../img/profilepic1.png"> -->
+				<div class="w-full h-full flex items-end py-24 sm:py-48 mainpaddingx"><span class="w-full z-10"><h2 class="pagetitle !text-white !font-normal !border-white !mb-0 text-shadow-xl">3D Modelling a Supervillain</h2><br /><h3 class="text-white mt-0 text-2xl font-thin text-shadow-xl">3D model of the Marvel character Thanos, head sculpted with Mudbox, body and poses created in Maya</h3></span></div>
+				<!-- <h3 class="text-2xl font-semibold"></h3> -->
+			</div>
+		</header>
+		<main class="mainarea !min-h-0 text-justify relative">
+			<div class="italic text-slate-800 mb-12 text">
+				<p>Hi! I'm Jannik, a 25 year old media computer scientist from Germany.</p>
+				<p>I recently finished my Master's at the University of Tübingen and am now looking for new exciting challenges in the interdisciplinary field of creative media creation and software engineering.</p>
+
+			</div>
+
+			<div class="bg-thanos-900 sm:rounded-lg shadow-md-up border-thanos-200 border-0 aspect-square max-h-[calc(100vh-5rem)] min-w-full relative mainpaddingx-remove sm:mx-0">
+				<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+				<!-- TODO: Make container aspect ratio 1:1 -->
+				<div class="absolute top-0 bottom-0 left-0 right-0"><model-viewer style="width: 100%; height: 100%;" bounds="tight" src="../../../3d-objects/ThanosEmptyUV.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls disable-zoom poster="../../../3d-objects/poster.webp" shadow-intensity="1" environment-image="../../../3d-objects/spruit_sunrise_1k_HDR.hdr" camera-orbit="-742.2deg 89.96deg auto" exposure="0.96"><div class="progress-bar hide" slot="progress-bar"><div class="update-bar"></div></div></model-viewer></div>
+			</div>
+
+			<div class="sm:rounded-lg w-full h-auto relative mainpaddingx-remove sm:mx-0 object-center">
+				<img class="w-full" src="../../../img/thanos.png">
+			</div>
+			<!-- https://drive.google.com/drive/folders/1CERf-5F-jtWAKl64qDubPK7hipCex6kK?usp=sharing -->
+			<div class="sm:rounded-lg overflow-hidden sm:grid sm:grid-cols-2 mainpaddingx-remove sm:mx-0">
+				<div class="contrast-150 saturate-150 hue-rotate-15 brightness-105 sm:aspect-square object-cover object-center">
+					<img class="object-cover w-full h-full" src="../../../img/thanos bored.png">
+				</div>
+				<div class="contrast-150 saturate-150 hue-rotate-15 brightness-105 sm:aspect-square object-cover object-center">
+					<img class="object-cover w-full h-full" src="../../../img/thanos one sided carry.png">
+				</div>
+				<div class="contrast-150 saturate-150 hue-rotate-15 brightness-105 sm:aspect-square object-cover object-center">
+					<img class="object-cover w-full h-full" src="../../../img/thanos pulling rope.png">
+				</div>
+				<div class="contrast-150 saturate-150 hue-rotate-15 brightness-105 sm:aspect-square object-cover object-center">
+					<img class="object-cover w-full h-full" src="../../../img/thanos winning.png">
+				</div>
+			</div>
+		</main>
+		<div id="footer"></div>
+	</div>
+</body>
+</html>
