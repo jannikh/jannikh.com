@@ -728,6 +728,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   max-height: calc(100vh - 8rem);
 }
 
+.max-h-\[calc\(100vh\)\] {
+  max-height: calc(100vh);
+}
+
+.max-h-\[calc\(100vh\)\*0\.9\] {
+  max-height: calc(100vh) * 0.9;
+}
+
 .\!min-h-0 {
   min-height: 0px !important;
 }
@@ -1191,6 +1199,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .\!text-wood-800 {
   --tw-text-opacity: 1 !important;
   color: rgb(33 26 21 / var(--tw-text-opacity)) !important;
+}
+
+.text-primary-500 {
+  --tw-text-opacity: 1;
+  color: rgb(17 116 113 / var(--tw-text-opacity));
 }
 
 .underline {
