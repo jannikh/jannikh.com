@@ -720,20 +720,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: calc(100vw / 1080 * 1442 + 2.5rem);
 }
 
-.max-h-\[calc\(100vh-5rem\)\] {
-  max-height: calc(100vh - 5rem);
-}
-
-.max-h-\[calc\(100vh-8rem\)\] {
-  max-height: calc(100vh - 8rem);
-}
-
 .max-h-\[calc\(100vh\)\] {
   max-height: calc(100vh);
 }
 
+.max-h-\[calc\(100vh-5rem\)\] {
+  max-height: calc(100vh - 5rem);
+}
+
 .max-h-\[calc\(100vh\)\*0\.9\] {
   max-height: calc(100vh) * 0.9;
+}
+
+.max-h-\[calc\(100vh-8rem\)\] {
+  max-height: calc(100vh - 8rem);
 }
 
 .\!min-h-0 {
@@ -796,6 +796,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-radius: 9999px;
 }
 
+.rounded {
+  border-radius: 0.25rem;
+}
+
 .border-0 {
   border-width: 0px;
 }
@@ -808,6 +812,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-top-width: 2px;
 }
 
+.border-b-0 {
+  border-bottom-width: 0px;
+}
+
 .border-slate-400 {
   --tw-border-opacity: 1;
   border-color: rgb(148 163 184 / var(--tw-border-opacity));
@@ -818,9 +826,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-color: rgb(17 116 113 / var(--tw-border-opacity));
 }
 
-.border-slate-200 {
+.border-slate-700 {
   --tw-border-opacity: 1;
-  border-color: rgb(226 232 240 / var(--tw-border-opacity));
+  border-color: rgb(51 65 85 / var(--tw-border-opacity));
 }
 
 .\!border-white {
@@ -843,6 +851,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(8 50 54 / var(--tw-bg-opacity));
 }
 
+.bg-slate-800 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(30 41 59 / var(--tw-bg-opacity));
+}
+
 .bg-metal-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(178 183 202 / var(--tw-bg-opacity));
@@ -858,19 +871,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(184 163 145 / var(--tw-bg-opacity));
 }
 
-.bg-thanos-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(211 170 203 / var(--tw-bg-opacity));
-}
-
-.bg-red-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
-}
-
 .bg-thanos-700 {
   --tw-bg-opacity: 1;
   background-color: rgb(94 48 90 / var(--tw-bg-opacity));
+}
+
+.bg-thanos-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(180 110 170 / var(--tw-bg-opacity));
 }
 
 .bg-thanos-900 {
@@ -883,21 +891,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-blue-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(37 99 235 / var(--tw-bg-opacity));
-}
-
-.bg-thanos-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(180 110 170 / var(--tw-bg-opacity));
-}
-
-.bg-thanos-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(127 66 121 / var(--tw-bg-opacity));
-}
-
 .bg-opacity-20 {
   --tw-bg-opacity: 0.2;
 }
@@ -908,14 +901,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .bg-opacity-10 {
   --tw-bg-opacity: 0.1;
-}
-
-.bg-opacity-0 {
-  --tw-bg-opacity: 0;
-}
-
-.bg-opacity-40 {
-  --tw-bg-opacity: 0.4;
 }
 
 .bg-gradient-to-b {
@@ -1126,14 +1111,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(186 245 229 / var(--tw-text-opacity));
 }
 
-.text-primary-600 {
+.text-primary-500 {
   --tw-text-opacity: 1;
-  color: rgb(12 83 85 / var(--tw-text-opacity));
+  color: rgb(17 116 113 / var(--tw-text-opacity));
 }
 
-.text-slate-600 {
+.text-slate-400 {
   --tw-text-opacity: 1;
-  color: rgb(71 85 105 / var(--tw-text-opacity));
+  color: rgb(148 163 184 / var(--tw-text-opacity));
 }
 
 .\!text-white {
@@ -1201,11 +1186,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(33 26 21 / var(--tw-text-opacity)) !important;
 }
 
-.text-primary-500 {
-  --tw-text-opacity: 1;
-  color: rgb(17 116 113 / var(--tw-text-opacity));
-}
-
 .underline {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
@@ -1221,10 +1201,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .opacity-100 {
   opacity: 1;
-}
-
-.bg-blend-saturation {
-  background-blend-mode: saturation;
 }
 
 .shadow-lg {
@@ -1503,20 +1479,20 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .mainarea-p0 {
   margin-top: -0.375rem;
-  min-height: calc(100vh - (10rem + 6rem + 52rem) / 4);
+  min-height: calc(100vh - (10rem + 4.5rem + 52rem) / 4);
   --tw-bg-opacity: 1;
   background-color: rgb(226 232 240 / var(--tw-bg-opacity));
 }
 
 @media (min-width: 640px) {
   .mainarea-p0 {
-    min-height: calc(100vh - (10rem + 6rem + 28rem) / 4);
+    min-height: calc(100vh - (10rem + 4.5rem + 28rem) / 4);
   }
 }
 
 @media (min-width: 1024px) {
   .mainarea-p0 {
-    min-height: calc(100vh - (10rem + 6rem + 12rem) / 4);
+    min-height: calc(100vh - (10rem + 4.5rem + 12rem) / 4);
   }
 }
 
@@ -1550,20 +1526,20 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .mainarea {
   margin-top: -0.375rem;
-  min-height: calc(100vh - (10rem + 6rem + 52rem) / 4);
+  min-height: calc(100vh - (10rem + 4.5rem + 52rem) / 4);
   --tw-bg-opacity: 1;
   background-color: rgb(226 232 240 / var(--tw-bg-opacity));
 }
 
 @media (min-width: 640px) {
   .mainarea {
-    min-height: calc(100vh - (10rem + 6rem + 28rem) / 4);
+    min-height: calc(100vh - (10rem + 4.5rem + 28rem) / 4);
   }
 }
 
 @media (min-width: 1024px) {
   .mainarea {
-    min-height: calc(100vh - (10rem + 6rem + 12rem) / 4);
+    min-height: calc(100vh - (10rem + 4.5rem + 12rem) / 4);
   }
 }
 
@@ -1604,20 +1580,20 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .mainarea-wide {
   margin-top: -0.375rem;
-  min-height: calc(100vh - (10rem + 6rem + 52rem) / 4);
+  min-height: calc(100vh - (10rem + 4.5rem + 52rem) / 4);
   --tw-bg-opacity: 1;
   background-color: rgb(226 232 240 / var(--tw-bg-opacity));
 }
 
 @media (min-width: 640px) {
   .mainarea-wide {
-    min-height: calc(100vh - (10rem + 6rem + 28rem) / 4);
+    min-height: calc(100vh - (10rem + 4.5rem + 28rem) / 4);
   }
 }
 
 @media (min-width: 1024px) {
   .mainarea-wide {
-    min-height: calc(100vh - (10rem + 6rem + 12rem) / 4);
+    min-height: calc(100vh - (10rem + 4.5rem + 12rem) / 4);
   }
 }
 
@@ -1924,14 +1900,14 @@ div:hover > .hiddenbadge {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.hover\:border-slate-300:hover {
+.hover\:border-slate-600:hover {
   --tw-border-opacity: 1;
-  border-color: rgb(203 213 225 / var(--tw-border-opacity));
+  border-color: rgb(71 85 105 / var(--tw-border-opacity));
 }
 
-.hover\:text-slate-700:hover {
+.hover\:text-slate-300:hover {
   --tw-text-opacity: 1;
-  color: rgb(51 65 85 / var(--tw-text-opacity));
+  color: rgb(203 213 225 / var(--tw-text-opacity));
 }
 
 .hover\:opacity-100:hover {
