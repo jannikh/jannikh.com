@@ -10,14 +10,13 @@
 	/* use as [color:var(--test)] */
 }
 
-.small-caps {
-	font-variant-caps: small-caps;
-}
+.small-caps { font-variant-caps: small-caps; }
 
 .text-shadow { text-shadow: 0 2px 4px rgba(0,0,0,0.10); }
 .text-shadow-md { text-shadow: 0 4px 8px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08); }
 .text-shadow-lg { text-shadow: 0 15px 30px rgba(0,0,0,0.11), 0 5px 15px rgba(0,0,0,0.08); }
 .text-shadow-xl { text-shadow: 0 10px 50px rgba(0,0,0,0.21), 0 5px 20px rgba(0,0,0,0.18); }
+.text-shadow-2xl { text-shadow: 0 10px 50px rgba(0,0,0,0.3), 0 5px 20px rgba(0,0,0,0.3); }
 .text-shadow-none { text-shadow: none; }
 
 .mainpaddingx-wide { @apply px-3 xs:px-6 smm:px-12 mdd:px-16 xl:px-24 }
@@ -25,9 +24,54 @@
 .mainpaddingx-remove { @apply -mx-3 xs:-mx-6 smm:-mx-12 mdd:-mx-[calc((100vw-900px)/2+3rem)] }
 .right-mainpaddingx { @apply right-3 xs:right-6 smm:right-12 mdd:right-16 xl:right-24 }
 .right-sm-mainpaddingx { @apply sm:right-12 mdd:right-16 xl:right-24 }
-.mainarea-p0 { @apply min-h-[calc(100vh-(10rem+4.5rem+52rem)/4)] sm:min-h-[calc(100vh-(10rem+4.5rem+28rem)/4)] lg:min-h-[calc(100vh-(10rem+4.5rem+12rem)/4)] bg-slate-200 -mt-1.5 }
+.mainarea-p0 { @apply min-h-[calc(100vh-(10rem+4.5rem+40rem)/4)] sm:min-h-[calc(100vh-(10rem+4.5rem+28rem)/4)] lg:min-h-[calc(100vh-(10rem+4.5rem+12rem)/4)] bg-slate-200 -mt-1.5 }
 .mainarea { @apply mainarea-p0 mainpaddingx py-6 }
 .mainarea-wide { @apply mainarea-p0 mainpaddingx-wide py-6 }
+
+@supports not (mix-blend-mode: screen) {
+	.anaglyph-white { color: white; }
+}
+@supports (mix-blend-mode: screen) {
+	.anaglyph-white, .anaglyph-white:after, .anaglyph-white:before { @apply transition-all ease-in-out duration-300 }
+	.anaglyph-white {
+		position: relative;
+		color: rgba(0,255,0, 1) !important;
+		opacity: 0.7;
+	}
+	.anaglyph-white:before, .anaglyph-white:after {
+		position: absolute;
+		top: 0;
+		mix-blend-mode: screen;
+	}
+	.anaglyph-white:before {
+		color: rgba(255,0,0, 1);
+	}
+	.anaglyph-white:after {
+		color: rgba(0,0,255, 1);
+	}
+	.anaglyph-white:before { content: attr(before); left: 0; }
+	.anaglyph-white:after { content: attr(after); right: 0;	}
+	.anaglyph-white:hover, .anaglyph-white:active {
+		margin-left: 0px;
+		margin-top: 0px;
+		opacity: 0.9;
+	}
+	.anaglyph-white:hover:before, .anaglyph-white:active:before {
+		/* transform: rotate(-1deg); */
+		font-size: 0.99em;
+		left: -0.2em;
+		top: -0.1em;
+	}
+	.anaglyph-white:hover:after, .anaglyph-white:active:after {
+		/* transform: rotate(2deg) skew(-10deg, 1deg); */
+		font-size: 0.99em;
+		right: -0.2em;
+		top: 0.1em;
+	}
+}
+.headerlogo {
+	@apply font-bold uppercase tracking-wide border-b border-slate-700 hover:border-slate-600 text-lg shadow-sm hover:shadow anaglyph-white
+}
 
 .footer:hover a span { @apply underline }
 .footer a:hover { @apply text-white }
@@ -49,10 +93,25 @@ sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 */
 .card:hover > div span:first-of-type { @apply text-black }
 .card > div span:last-of-type { @apply block text-gray-500 text-sm italic }
 
-.pagetitle { @apply border-slate-400 border-b text-primary-700 text-opacity-80 text-5xl font-semibold mb-5 pb-1 small-caps }
+.line-behind { display: table; white-space: nowrap; }
+.line-behind::before, .line-behind::after { border-top: 1px solid white; content: ''; display: table-cell; position: relative; top: 0.5em; width: 45%; }
+.line-behind::before { right: 1.5%; }
+.line-behind::after { left: 1.5%; }
+
+.pagetitle { @apply border-slate-400 border-b text-primary-700 text-opacity-80 text-5xl mb-5 pb-1 small-caps }
 
 .text > p {
 	@apply mb-4
+}
+
+.enhancedimg:after {
+	@apply content-empty absolute bg-gradient-to-b from-transparent to-[#22000044] inset-0 mix-blend-overlay
+}
+.enhancedimg-hue:after {
+	@apply content-empty absolute bg-gradient-to-b from-[#00002244] to-[#22000044] inset-0 mix-blend-hue
+}
+.blend-overlay-text {
+	@apply absolute top-[20vh] left-0 text-6xl font-black uppercase text-[red] w-full text-center skew-x-6 rotate-6 mix-blend-saturation opacity-40
 }
 
 .badge, .hiddenbadge { @apply text-white bg-gray-800 text-xs font-bold rounded-br-lg !p-2 !pt-1 absolute top-0 max-h-6 shadow-sm opacity-70 transition ease-in-out duration-150 !bg-opacity-100 }
