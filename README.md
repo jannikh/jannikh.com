@@ -1,5 +1,5 @@
 # jannikh.com
-This is the open-source repository for my personal website [jannikh.com](https://jannikh.com), hosted directly by github pages.
+This is the open-source repository for my personal website [jannikh.com](https://jannikh.com), hosted directly by [github pages](https://pages.github.com/).
 
 The website is created utilizing [tailwind css](https://tailwindcss.com/) with [just-in-time mode](https://tailwindcss.com/).
 
