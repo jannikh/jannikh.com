@@ -1100,19 +1100,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 1.25rem;
 }
 
-.text-xs {
-  font-size: 0.75rem;
-  line-height: 1rem;
-}
-
 .text-smm {
   font-size: 0.9375rem;
   line-height: 1.375rem;
 }
 
-.text-md {
-  font-size: 1rem;
-  line-height: 1.5rem;
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 
 .font-bold {
@@ -2244,21 +2239,6 @@ div:hover > .hiddenbadge, div:active > .hiddenbadge {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.hover\:bg-primary-50:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(186 245 229 / var(--tw-bg-opacity));
-}
-
-.hover\:bg-primary-500:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(17 116 113 / var(--tw-bg-opacity));
-}
-
-.hover\:bg-primary-700:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(8 50 54 / var(--tw-bg-opacity));
-}
-
 .hover\:text-primary-400:hover {
   --tw-text-opacity: 1;
   color: rgb(25 174 161 / var(--tw-text-opacity));
@@ -2365,11 +2345,6 @@ div:hover > .hiddenbadge, div:active > .hiddenbadge {
   .sm\:text-md {
     font-size: 1rem;
     line-height: 1.5rem;
-  }
-
-  .sm\:text-mdd {
-    font-size: 1.0625rem;
-    line-height: 1.625rem;
   }
 }
 
