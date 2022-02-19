@@ -87,7 +87,7 @@ a { outline: none !important; }
 .cardgrid { @apply mt-8 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 }
 /* with md:navigation on left third:
 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 */
-.card { @apply bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl active:shadow-xl relative transform transition ease-in-out duration-150 break-inside-avoid hover:text-black hover:scale-102 hover:bg-white active:text-black active:scale-102 active:bg-white }
+.card { @apply bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl active:shadow-xl relative transform transition ease-in-out duration-150 hover:text-black hover:scale-102 hover:bg-white active:text-black active:scale-102 active:bg-white }
 .card > img:first-child { @apply w-full h-32 sm:h-48 object-cover overflow-hidden transform transition ease-in-out duration-150 shadow-inner }
 .card:hover > img:first-child { @apply brightness-105 }
 .card > div:first-of-type { @apply p-4 pt-2 h-full !bg-opacity-0 }

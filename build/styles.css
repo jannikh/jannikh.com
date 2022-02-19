@@ -468,64 +468,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-backdrop-sepia:  ;
 }
 
-.container {
-  width: 100%;
-}
-
-@media (min-width: 400px) {
-  .container {
-    max-width: 400px;
-  }
-}
-
-@media (min-width: 640px) {
-  .container {
-    max-width: 640px;
-  }
-}
-
-@media (min-width: 720px) {
-  .container {
-    max-width: 720px;
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 768px;
-  }
-}
-
-@media (min-width: 900px) {
-  .container {
-    max-width: 900px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container {
-    max-width: 1024px;
-  }
-}
-
-@media (min-width: 1080px) {
-  .container {
-    max-width: 1080px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .container {
-    max-width: 1280px;
-  }
-}
-
-@media (min-width: 1536px) {
-  .container {
-    max-width: 1536px;
-  }
-}
-
 .absolute {
   position: absolute;
 }
@@ -808,6 +750,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   cursor: pointer;
 }
 
+.break-inside-avoid {
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
+}
+
 .items-end {
   align-items: flex-end;
 }
@@ -830,6 +777,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+.whitespace-nowrap {
+  white-space: nowrap;
 }
 
 .rounded-full {
@@ -910,19 +861,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(184 163 145 / var(--tw-bg-opacity));
 }
 
-.bg-thanos-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(94 48 90 / var(--tw-bg-opacity));
-}
-
 .bg-thanos-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(180 110 170 / var(--tw-bg-opacity));
 }
 
-.bg-thanos-900 {
+.bg-slate-400 {
   --tw-bg-opacity: 1;
-  background-color: rgb(26 14 26 / var(--tw-bg-opacity));
+  background-color: rgb(148 163 184 / var(--tw-bg-opacity));
 }
 
 .bg-white {
@@ -946,9 +892,43 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
 
+.bg-gradient-radial {
+  background-image: radial-gradient(circle, var(--tw-gradient-stops));
+}
+
 .from-transparent {
   --tw-gradient-from: transparent;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(0 0 0 / 0));
+}
+
+.from-gray-300 {
+  --tw-gradient-from: #d1d5db;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(209 213 219 / 0));
+}
+
+.from-gray-100 {
+  --tw-gradient-from: #f3f4f6;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(243 244 246 / 0));
+}
+
+.from-gray-200 {
+  --tw-gradient-from: #e5e7eb;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(229 231 235 / 0));
+}
+
+.from-slate-200 {
+  --tw-gradient-from: #e2e8f0;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(226 232 240 / 0));
+}
+
+.from-zinc-200 {
+  --tw-gradient-from: #e4e4e7;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(228 228 231 / 0));
+}
+
+.from-stone-200 {
+  --tw-gradient-from: #e7e5e4;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(231 229 228 / 0));
 }
 
 .via-transparent {
@@ -961,6 +941,30 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .to-\[\#00000077\] {
   --tw-gradient-to: #00000077;
+}
+
+.to-gray-300 {
+  --tw-gradient-to: #d1d5db;
+}
+
+.to-gray-200 {
+  --tw-gradient-to: #e5e7eb;
+}
+
+.to-gray-100 {
+  --tw-gradient-to: #f3f4f6;
+}
+
+.to-slate-300 {
+  --tw-gradient-to: #cbd5e1;
+}
+
+.to-zinc-300 {
+  --tw-gradient-to: #d4d4d8;
+}
+
+.to-stone-300 {
+  --tw-gradient-to: #d6d3d1;
 }
 
 .bg-cover {
@@ -988,6 +992,11 @@ Ensure the default browser behavior of the `hidden` attribute.
      object-fit: contain;
 }
 
+.\!object-cover {
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+}
+
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -996,6 +1005,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .\!object-scale-down {
   -o-object-fit: scale-down !important;
      object-fit: scale-down !important;
+}
+
+.object-top {
+  -o-object-position: top;
+     object-position: top;
 }
 
 .object-center {
@@ -1207,6 +1221,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .\!text-thanos-600 {
   --tw-text-opacity: 1 !important;
   color: rgb(127 66 121 / var(--tw-text-opacity)) !important;
+}
+
+.\!text-slate-600 {
+  --tw-text-opacity: 1 !important;
+  color: rgb(71 85 105 / var(--tw-text-opacity)) !important;
 }
 
 .text-white {
@@ -1932,8 +1951,6 @@ sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 */
 .card {
   position: relative;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  -moz-column-break-inside: avoid;
-       break-inside: avoid;
   overflow: hidden;
   border-radius: 0.5rem;
   --tw-bg-opacity: 1;

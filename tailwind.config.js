@@ -43,6 +43,18 @@ module.exports = {
         xl: '1280px',
         '2xl': '1536px',
       },
+      backgroundImage: {
+        none: 'none',
+        'gradient-to-t': 'linear-gradient(to top, var(--tw-gradient-stops))',
+        'gradient-to-tr': 'linear-gradient(to top right, var(--tw-gradient-stops))',
+        'gradient-to-r': 'linear-gradient(to right, var(--tw-gradient-stops))',
+        'gradient-to-br': 'linear-gradient(to bottom right, var(--tw-gradient-stops))',
+        'gradient-to-b': 'linear-gradient(to bottom, var(--tw-gradient-stops))',
+        'gradient-to-bl': 'linear-gradient(to bottom left, var(--tw-gradient-stops))',
+        'gradient-to-l': 'linear-gradient(to left, var(--tw-gradient-stops))',
+        'gradient-to-tl': 'linear-gradient(to top left, var(--tw-gradient-stops))',
+        'gradient-radial': 'radial-gradient(circle, var(--tw-gradient-stops))',
+      },
       blur: {
         0: '0',
         none: '0',
