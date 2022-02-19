@@ -75,7 +75,8 @@ a { outline: none !important; }
 	@apply font-bold uppercase tracking-wide border-b border-slate-700 hover:border-slate-600 active:border-slate-600 text-lg shadow-sm hover:shadow anaglyph-white
 }
 
-.footer:hover a span, .footer:active a span { @apply underline }
+.footer a span { @apply underline decoration-solid decoration-primary-400 }
+.footer a:hover span, .footer a:active span { @apply underline decoration-solid decoration-primary-300 }
 .footer a:hover, .footer a:active { @apply text-white }
 /* .footer a:hover div { @apply shadow-inner-md } */
 .footer a span, .footer a { @apply transition ease-in-out duration-200 }
@@ -86,14 +87,14 @@ a { outline: none !important; }
 .cardgrid { @apply mt-8 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 }
 /* with md:navigation on left third:
 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 */
-.card { @apply bg-white rounded-lg overflow-hidden shadow-lg relative transform transition ease-in-out duration-150 break-inside-avoid hover:shadow-xl hover:text-black hover:scale-102 hover:bg-white active:shadow-xl active:text-black active:scale-102 active:bg-white }
+.card { @apply bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl active:shadow-xl relative transform transition ease-in-out duration-150 break-inside-avoid hover:text-black hover:scale-102 hover:bg-white active:text-black active:scale-102 active:bg-white }
 .card > img:first-child { @apply w-full h-32 sm:h-48 object-cover overflow-hidden transform transition ease-in-out duration-150 shadow-inner }
 .card:hover > img:first-child { @apply brightness-105 }
 .card > div:first-of-type { @apply p-4 pt-2 h-full !bg-opacity-0 }
 .card:hover > div, .card:active > div { @apply bg-opacity-0 }
 .card > div span:first-of-type { @apply font-bold }
 .card:hover > div span:first-of-type, .card:active > div span:first-of-type { @apply text-black }
-.card > div span:last-of-type { @apply block text-gray-500 text-sm italic }
+.card > div span:last-of-type { @apply block text-gray-500 text-sm italic mt-1 }
 
 .line-behind { display: table; white-space: nowrap; }
 .line-behind::before, .line-behind::after { border-top: 1px solid white; content: ''; display: table-cell; position: relative; top: 0.5em; width: 45%; }

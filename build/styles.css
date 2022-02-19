@@ -836,6 +836,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-radius: 9999px;
 }
 
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
 .rounded {
   border-radius: 0.25rem;
 }
@@ -1027,11 +1031,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-right: 2rem;
 }
 
-.px-5 {
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-}
-
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -1104,6 +1103,16 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.text-smm {
+  font-size: 0.9375rem;
+  line-height: 1.375rem;
+}
+
+.text-md {
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .font-bold {
@@ -1222,6 +1231,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .underline {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
+}
+
+.decoration-solid {
+  -webkit-text-decoration-style: solid;
+          text-decoration-style: solid;
 }
 
 .underline-offset-4 {
@@ -1806,9 +1820,22 @@ a {
   border-color: rgb(71 85 105 / var(--tw-border-opacity));
 }
 
-.footer:hover a span, .footer:active a span {
+.footer a span {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
+  -webkit-text-decoration-color: #19AEA1;
+          text-decoration-color: #19AEA1;
+  -webkit-text-decoration-style: solid;
+          text-decoration-style: solid;
+}
+
+.footer a:hover span, .footer a:active span {
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+  -webkit-text-decoration-color: #29E0C7;
+          text-decoration-color: #29E0C7;
+  -webkit-text-decoration-style: solid;
+          text-decoration-style: solid;
 }
 
 .footer a:hover, .footer a:active {
@@ -2001,6 +2028,7 @@ sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 */
 }
 
 .card > div span:last-of-type {
+  margin-top: 0.25rem;
   display: block;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -2216,6 +2244,26 @@ div:hover > .hiddenbadge, div:active > .hiddenbadge {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.hover\:bg-primary-50:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(186 245 229 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-primary-500:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 116 113 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-primary-700:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(8 50 54 / var(--tw-bg-opacity));
+}
+
+.hover\:text-primary-400:hover {
+  --tw-text-opacity: 1;
+  color: rgb(25 174 161 / var(--tw-text-opacity));
+}
+
 .hover\:opacity-60:hover {
   opacity: 0.6;
 }
@@ -2228,6 +2276,11 @@ div:hover > .hiddenbadge, div:active > .hiddenbadge {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.active\:text-primary-400:active {
+  --tw-text-opacity: 1;
+  color: rgb(25 174 161 / var(--tw-text-opacity));
 }
 
 @media (min-width: 640px) {
@@ -2312,6 +2365,11 @@ div:hover > .hiddenbadge, div:active > .hiddenbadge {
   .sm\:text-md {
     font-size: 1rem;
     line-height: 1.5rem;
+  }
+
+  .sm\:text-mdd {
+    font-size: 1.0625rem;
+    line-height: 1.625rem;
   }
 }
 

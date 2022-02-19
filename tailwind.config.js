@@ -80,6 +80,12 @@ module.exports = {
         'inner-lg-up': 'inset 0 -4px 10px 3px rgb(0 0 0 / 0.1)',
         'inner-xl-up': 'inset 0 -6px 15px 5px rgb(0 0 0 / 0.1)',
         'inner-2xl-up': 'inset 0 -10px 25px 6px rgb(0 0 0 / 0.25)',
+        'neo-sm': '1px 1px 2px 0 rgba(0,0,0,0.16), -1px -1px 2px 0 #FFFFFF;',
+        'neo': '1.75px 1.75px 3px 0 rgba(0,0,0,0.16), -1.5px -1.5px 3px 0 #FFFFFF;',
+        'neo-md': '3.5px 3.5px 6px 0 rgba(0,0,0,0.16), -2.75px -2.75px 5.5px 0 #FFFFFF;',
+        'neo-lg': '8px 8px 15px 0 rgba(0,0,0,0.16), -6.5px -6.5px 13px 0 #FFFFFF;',
+        'neo-xl': '14px 14px 25px 0 rgba(0,0,0,0.16), -11px -11px 22px 0 #FFFFFF;',
+        'neo-2xl': '28px 28px 50px 0 rgba(0,0,0,0.16), -23px -23px 45px 0 #FFFFFF;',
         none: 'none',
       },
       fontSize: {
