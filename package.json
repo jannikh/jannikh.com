@@ -1,7 +1,7 @@
 {
 	"name": "jannikh.com",
 	"version": "1.0.0",
-	"description": "",
+	"description": "Personal website of Jannik Hofmann",
 	"main": "index.js",
 	"scripts": {
 		"build-css": "tailwindcss build src/styles.css -o build/styles.css"
@@ -11,7 +11,7 @@
 		"url": "git+https://github.com/jannikh/jannikh.com.git"
 	},
 	"keywords": [],
-	"author": "",
+	"author": "Jannik Hofmann <git@jannikh.com> (https://jannikh.com/)",
 	"license": "ISC",
 	"bugs": {
 		"url": "https://github.com/jannikh/jannikh.com/issues"
