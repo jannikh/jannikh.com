@@ -32,8 +32,8 @@
 				title="Notify me of the missing website">let me know by sending me this e-mail</a></p>
 				<script>
 					var x = window.location.href;
-					var link = document.getElementById("customemail"); // store the element
-					var curHref = link.getAttribute('href'); // get its current href value
+					var link = document.getElementById("customemail");
+					var curHref = link.getAttribute('href');
 					x = encodeURI(x)
 					link.setAttribute('href', curHref.replace("...", "%3A%20" + x));
 				</script>

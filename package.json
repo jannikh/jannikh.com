@@ -4,14 +4,14 @@
 	"description": "Personal website of Jannik Hofmann",
 	"main": "index.js",
 	"scripts": {
-		"build-css": "tailwindcss build src/styles.css -o build/styles.css"
+		"build-css": "tailwindcss build src/styles.css -o build/styles.css --minify"
 	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/jannikh/jannikh.com.git"
 	},
 	"keywords": [],
-	"author": "Jannik Hofmann <git@jannikh.com> (https://jannikh.com/)",
+	"author": "Jannik Hofmann <webdev@jannikh.com> (https://jannikh.com/)",
 	"license": "ISC",
 	"bugs": {
 		"url": "https://github.com/jannikh/jannikh.com/issues"
