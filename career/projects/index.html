@@ -13,106 +13,24 @@
 		$(function(){
 		  $("#footer").load("/src/footer.html"); 
 		});
+		$(function(){
+		  $("#projects").load("/src/projects.html"); 
+		});
 	</script>
 </head>
 <body class="text-textc" lang="en">
 	<div class=""> <!-- md:grid md:grid-cols-3 content wrapper -->
 		<div id="header"></div>
-
-		<main class="mainarea-wide">
-			<header>
-				<h2 class="pagetitle">My projects</h2>
-				<!-- <h3 class="text-2xl font-semibold"></h3> -->
-			</header>
-			<div class="italic text-slate-500 mb-12">
-				<p>Here are some of the projects I worked on in the past few years. Click on any for a detailed explanation and download files.
-				If you have any questions, please don't hesitate to <a href="#contact" class="underline">contact me anytime</a></p>
-			</div>
-
-			<div>
-				<div class="cardgrid mb-16" style="-webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; -ms-hyphens: auto; word-break: break-word;">
-					<!-- cards go here -->
-					<div><a href="https://github.com/cgtuebingen/jannik-hofmann-master-thesis"><div class="card">
-						<img class="!h-32" src="/img/ue26.jpg" alt="">
-						<div class="bg-metal-200 bg-opacity-20">
-							<span class="text-metal-800">Master thesis: <i>Deep neural network visualization in the Unreal Engine for interactive fly-through exploration</i></span>
-							<span class="!text-metal-600">Open-source, extensible and modular framework for visualizing
-								<!-- layout, convolutions, saliency, and integrated gradients -->
-								inner workings
-								of artifical intelligence</span>
-						</div>
-						<div class="hiddenbadge">Mar - Oct 2021</div>
-					</div></a></div>
-					<!-- <div><a href="#"><div class="card">
-						<img class="!h-32" src="/img/remindful-text.png" alt="">
-						<div class="bg-remindful-50 bg-opacity-30">
-							<span class="text-remindful-700">Development of the Android App <i>Remindful</i></span>
-							<span class="!text-remindful-500">Mindfulness app to remind people to take care of themselves</span>
-						</div>
-						<div class="hiddenbadge">Nov 2021 - Feb 2022</div>
-					</div></a></div> -->
-					<div><a href="film"><div class="card">
-						<img src="/img/wanderung2.png" alt="">
-						<div class="bg-wood-200 bg-opacity-10">
-							<span class="text-wood-700">Student short film <i class="whitespace-nowrap">The Hike</i></span>
-							<span class="!text-wood-400">10-minute short film, written, directed, acted and cut by Tobias Burghardt and me</span>
-						</div>
-						<div class="hiddenbadge">Nov 2020 - Mar 2021</div>
-					</div></a></div>
-					<div><a href="3d-model"><div class="card">
-						<img src="/img/thanos/mudbox.png" class="!object-scale-down pt-4" style="background: rgba(127,66,121,0.5);
-						background: radial-gradient(circle, rgba(127,66,121,0.5) 0%, rgba(94,48,90,0.6) 100%);" alt="">
-						<div class="bg-thanos-400 bg-opacity-10">
-							<span class="text-thanos-800">3D Modeling a Supervillain</span>
-							<span class="!text-thanos-600">3D model of the Marvel character Thanos, head sculpted with Mudbox, body and poses created in Maya</span>
-						</div>
-						<div class="hiddenbadge">Mar - Apr 2021</div>
-					</div></a></div>
-					<!-- <div><a href="#"><div class="card">
-						<img src="/img/poster.webp" style="background-color: #eeeeee; object-fit: contain;" alt="">
-						<div>
-							<span>Computergraphics app IDLE</span>
-							<span></span>
-						</div>
-						<div class="hiddenbadge">Oct 2018 - Mar 2019</div>
-					</div></a></div> -->
-					<div><a href="https://github.com/jannikh/jannikh.com/"><div class="card">
-						<img src="/img/website window.png" class="!h-32 !object-cover object-top bg-gradient-radial from-gray-200 to-gray-300 pt-4" alt="">
-						<!-- image edited from CC open clipart image: https://openclipart.org/detail/334091/webbrowser -->
-						<div class="bg-slate-400 bg-opacity-10">
-							<span class="text-slate-800">Personal website <i class="whitespace-nowrap">jannikh.com</i></span>
-							<span class="!text-slate-600">This very website, created with tailwind, hosted by github pages, available as open-source repository</span>
-						</div>
-						<div class="hiddenbadge">Jan - Feb 2022</div>
-					</div></a></div>
-					<!-- <div><a href="#"><div class="card">
-						<img src="/img/poster.webp" style="background-color: #eeeeee; object-fit: contain;" alt="">
-						<div>
-							<span>Creativity in Automatic Sketch-Based Image Creation</span>
-							<span></span>
-						</div>
-						<div class="hiddenbadge">Aug 2020</div>
-					</div></a></div> -->
-					<!-- <div><a href="#"><div class="card">
-						<img src="/img/poster.webp" style="background-color: #eeeeee; object-fit: contain;" alt="">
-						<div>
-							<span>Embedded Systems: AdderNet</span>
-							<span>Seminar paper reviewing AdderNet</span>
-						</div>
-						<div class="hiddenbadge">May - Sep 2021</div>
-					</div></a></div> -->
-					<!-- <div><a href="#"><div class="card">
-						<img src="/img/poster.webp" style="background-color: #eeeeee; object-fit: contain;" alt="">
-						<div>
-							<span>Mapping towards 3D scenes and 3D scene reconstruction</span>
-							<span></span>
-						</div>
-						<div class="hiddenbadge">May - Jul 2021</div>
-					</div></a></div> -->
-				</div>
-			</div>
-		</main>
-		<div id="footer"></div>
+		<main><div id="projects"></div></main>
+		<div id="footer">
+			<noscript><div class="px-5 pb-8 pt-6 bg-orange-100 mainpaddingx border-y-2 border-red-800">
+				<span class="font-bold text-red-800">Please enable javascript to show my contact information</span><br /><br />
+				Or <a href="/src/footer.html" class="underline">click here to view contact info</a> and come back using your browsers back button.<br /><br />
+				Please let me know that this is a problem for you by <a target="_blank" class="underline" id='customemail' 
+			href="mailto:webdev@jannikh.com?subject=Please work around the javascript issue&body=Hi%20Jannik%2C%0D%0A%0D%0AI%20m%20rying%20o%20iew%20our%20website%20without%20using%20javascript,%20would%20appreciate%20it%20if%20you%20could%20make%20it%20viewable%20for%20me%20too.%0D%0A%0D%0ACheers"
+			title="Notify me of this issue">sending me an e-mail</a>
+			</div></noscript>
+		</div>
 	</div>
 </body>
 </html>
