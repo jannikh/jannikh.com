@@ -9,6 +9,9 @@
 	/* --test: #175070; */
 	/* use as [color:var(--test)] */
 }
+html {
+	scroll-behavior: smooth;
+}
 
 a { outline: none !important; }
 
