@@ -29,6 +29,7 @@ a { outline: none !important; }
 .mainpaddingx-wide { @apply px-3 xs:px-6 smm:px-12 mdd:px-16 xl:px-24 }
 .mainpaddingx { @apply px-3 xs:px-6 smm:px-12 mdd:px-[calc((100vw-900px)/2+3rem)] }
 .mainpaddingx-remove { @apply -mx-3 xs:-mx-6 smm:-mx-12 mdd:-mx-[calc((100vw-900px)/2+3rem)] }
+.sm-mainpaddingx { @apply sm:px-12 mdd:px-[calc((100vw-900px)/2+3rem)] }
 .right-mainpaddingx { @apply right-3 xs:right-6 smm:right-12 mdd:right-[calc((100vw-900px)/2+3rem)] }
 .right-sm-mainpaddingx { @apply sm:right-12 mdd:right-[calc((100vw-900px)/2+3rem)] }
 .right-lg-mainpaddingx { @apply lg:right-[calc((100vw-900px)/2+3rem)] }
