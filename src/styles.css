@@ -35,7 +35,7 @@ a { outline: none !important; }
 .right-mainpaddingx-wide { @apply right-3 xs:right-6 smm:right-12 mdd:right-16 xl:right-24 }
 .right-sm-mainpaddingx-wide { @apply sm:right-12 mdd:right-16 xl:right-24 }
 .right-lg-mainpaddingx-wide { @apply lg:right-16 xl:right-24 }
-.mainarea-p0 { @apply min-h-[calc(100vh-(10rem+4.5rem+40rem)/4)] sm:min-h-[calc(100vh-(10rem+4.5rem+28rem)/4)] lg:min-h-[calc(100vh-(10rem+4.5rem+12rem)/4)] bg-slate-200 -mt-1.5 }
+.mainarea-p0 { @apply min-h-[calc(100vh-(10rem+4.5rem+40rem)/4)] sm:min-h-[calc(100vh-(10rem+4.5rem+28rem)/4)] lg:min-h-[calc(100vh-(10rem+4.5rem+12rem)/4)] -mt-1.5 }
 .mainarea { @apply mainarea-p0 mainpaddingx py-6 }
 .mainarea-wide { @apply mainarea-p0 mainpaddingx-wide py-6 }
 
