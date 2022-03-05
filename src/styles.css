@@ -142,7 +142,7 @@ div:hover > .hiddenbadge, div:active > .hiddenbadge { opacity: 0.8 !important}
 	@apply my-0
 }
 .careernav ul li a, .careernav-bottom ul li a {
-	@apply text-white opacity-60 hover:opacity-90 active:opacity-90
+	@apply text-[rgba(255,255,255,0.7)] hover:text-white active:text-white transition-all ease-linear duration-100
 }
 .careernav ul li div, .careernav-bottom ul li div {
 	@apply px-[1rem] py-1
@@ -157,7 +157,7 @@ div:hover > .hiddenbadge, div:active > .hiddenbadge { opacity: 0.8 !important}
 	width: calc(80%-2*1rem);
     bottom: 0;
     left: calc(10%+1rem);
-	border-bottom: 1px solid white;
+	border-bottom: 1px solid rgba(255,255,255,0.7);
 }
 .careernav-bottom ul li a div:before {
 	width: calc(100%-2*1rem);
@@ -169,6 +169,7 @@ div:hover > .hiddenbadge, div:active > .hiddenbadge { opacity: 0.8 !important}
     width: calc(100%-2*1rem);
     left: 1rem;
 	bottom: 0.03rem;
+	border-bottom: 1px solid rgba(255,255,255,1);
 }
 .careernav-bottom ul li:hover a div:before, .careernav-bottom ul li:active a div:before {
 	border-bottom: 1px solid rgba(255,255,255,1);

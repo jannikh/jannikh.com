@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Projects of Jannik Hofmann</title>
+	<link rel="stylesheet" href="/build/styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script> 
+		$(function(){
+		  $("#header").load("/src/header.html"); 
+		});
+		$(function(){
+		  $("#footer").load("/src/footer.html"); 
+		});
+		$(function(){
+		  $("#projects").load("/src/projects.html"); 
+		});
+	</script>
+</head>
+<body class="text-textc" lang="en">
+	<div class=""> <!-- md:grid md:grid-cols-3 content wrapper -->
+		<div id="header"></div>
+		<main><div id="projects"></div></main>
+		<div id="footer">
+			<noscript><div class="px-5 pb-8 pt-6 bg-orange-100 mainpaddingx border-y-2 border-red-800">
+				<span class="font-bold text-red-800">Please enable javascript to show my contact information</span><br /><br />
+				Or <a href="/src/footer.html" class="underline">click here to view contact info</a> and come back using your browsers back button.<br /><br />
+				Please let me know that this is a problem for you by <a target="_blank" class="underline" id='customemail' 
+			href="mailto:webdev@jannikh.com?subject=Please work around the javascript issue&body=Hi%20Jannik%2C%0D%0A%0D%0AI%20m%20rying%20o%20iew%20our%20website%20without%20using%20javascript,%20would%20appreciate%20it%20if%20you%20could%20make%20it%20viewable%20for%20me%20too.%0D%0A%0D%0ACheers"
+			title="Notify me of this issue">sending me an e-mail</a>
+			</div></noscript>
+		</div>
+	</div>
+</body>
+</html>
