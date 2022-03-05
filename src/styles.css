@@ -12,6 +12,7 @@
 html {
 	scroll-behavior: smooth;
 }
+.empty-space { @apply invisible -z-50 pointer-events-none block }
 
 a { outline: none !important; }
 
