@@ -17,26 +17,22 @@
 		  $("#projects").load("/src/projects.html"); 
 		});
 	</script>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script> -->
 </head>
 <body class="career text-textc" lang="en">
 	<div class=""> <!-- md:grid md:grid-cols-3 content wrapper -->
 		<!-- <div id="header"></div> -->
-
-		<header class="fixed z-10 h-[calc(100vh-5rem)] min-h-[30rem] w-full overflow-hidden">
+		<!-- absolute rellax -->
+		<header class="fixed z-10 h-[calc(100vh-6rem)] min-h-[30rem] w-full overflow-hidden" data-rellax-speed="-5">
 			<a href="#aboutme" class="cursor-default"><div class="relative w-full h-full">
-				<!-- <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
-				<script>
-					// Accepts any class name
-					var rellax = new Rellax('.rellax');
-				</script> -->
-
 				<div class="absolute bottom-0 top-0 left-0 right-0 shadow-inner-lg-up overflow-visible" style="background-image: url('/img/shooting star denoise.jpeg'); transform: scaleX(-1.03) scaleY(1.03);"><!-- workaround due to weird blurring beahvior at edges -->
 					<div class="w-full h-full -right-10 bg-cover bg-center bg-fixed blur-sm transition ease-in-out duration-1000" style="background-image: url('/img/shooting star denoise.jpeg'); transform: scaleX(-1.03) scaleY(1.03);">
 						<div class="bg-gradient-to-b from-[#000000aa] via-transparent to-[#00000033] opacity-60 hover:opacity-60 w-full h-full mix-blend-color-burn"></div>
 						<!-- <div class="bg-gradient-to-b from-transparent to-[#00000077] opacity-100 hover:opacity-100 w-full h-full transition ease-in-out duration-1000"></div> -->
 					</div>
 				</div>
-				<nav class="careernav px-8 relative top-2 sm:top-[5vh]"><ul class="relative list-none flex justify-center flex-wrap">
+				<nav class="careernav px-8 relative top-2 sm:top-[5vh]"><ul class="relative list-none flex justify-center flex-wrap tracking-wide">
 					<li><a href="#aboutme" title="Skip to 'About Me' section"><div>About Me</div></a></li>
 					<li><a href="#projects" title="See what projects I worked on"><div>Projects</div></a></li>
 					<!-- <li><a href="#education" title="Look at my educational background"><div>Education</div></a></li> -->
@@ -45,24 +41,26 @@
 					<!-- TODO: WHEN ENABLING MORE NAV ITEMS, CHANGE TOP POS OF div#aboutme on responsive screens -->
 					<li><a href="#contact" title="Feel free to contact me :)"><div>Contact</div></a></li>
 				</ul></nav>
-				<a href="#aboutme" class="cursor-default"><img class="z-20 rounded-full shadow-xl w-48 -mr-24 absolute bottom-[50%] -mb-24 right-1/2 sm:bottom-32 sm:mb-0 sm:mr-auto right-sm-mainpaddingx md:bottom-20 right-lg-mainpaddingx md:w-72 lg:mr-0" src="/img/profilepic1.png"></a>
-				<a href="#aboutme" class="cursor-default bottom-0 absolute w-full"><div class="w-full bottom-0 flex items-end justify-center sm:justify-start py-[calc(max(25vh-6rem,3rem))] sm:py-48 sm-mainpaddingx"><h2 class="z-10 pagetitle !text-white text-shadow-2xl !font-normal !border-[rgba(255,255,255,0.2)] mdd:tracking-wider !text-[calc(min(11vw,2.8rem))] smm:[3rem] lg:tracking-widest !px-0"><span class="">J</span>annik<span class="mdd:hidden"> </span><span class="hidden mdd:inline-block">&ensp;</span><span class="">H</span>ofmann</h2></div></a>
+				<a href="#aboutme" class="cursor-default"><img class="z-20 rounded-full shadow-xl w-48 sm:w-[calc(37.5vw-3rem)] mdd:w-72 -mr-24 absolute -mb-24 right-1/2 bottom-[50%] sm:bottom-56 sm:-mb-[calc((37.5vw-3rem)/2)] mdd:-mb-36 sm:mr-auto right-sm-mainpaddingx right-lg-mainpaddingx lg:mr-0" src="/img/profilepic1.png"></a>
+
+				<a href="#aboutme" class="cursor-default bottom-0 absolute w-full"><div class="w-full bottom-0 flex items-end justify-center sm:justify-start py-[calc(max(25vh-6rem,3rem))] sm:py-48 sm-mainpaddingx"><h2 class="z-10 pagetitle !text-white text-shadow-2xl !font-normal !border-[rgba(255,255,255,0.2)] tracking-[calc(max(0rem,min(1vw-0.4rem,0.2rem)))] !text-[calc(min(11vw,2.8rem))] smm:[3rem] !px-0"><span class="">J</span>annik<span class="mdd:hidden"> </span><span class="hidden mdd:inline-block">&ensp;</span><span class="">H</span>ofmann</h2></div></a>
 				<!-- <h3 class="text-2xl font-semibold"></h3> -->
 			</div></a>
 		</header>
-		<div id="top" class="empty-space h-[calc(100vh-5rem)] min-h-[30rem] w-full"></div>
-		<main><div class="absolute z-20 shadow-2xl-up">
+		<div id="top" class="empty-space h-[calc(100vh-6rem)] min-h-[30rem] w-full"></div>
+		<main><div class="z-20 absolute shadow-2xl-up">
 			<div id="aboutme" class="relative -top-[4.5rem] sm:-top-[calc(5vh+6rem)] empty-space"></div>
 			<div class="mainarea bg-gray-800 !min-h-0 sm:grid sm:grid-cols-1 text-justify !pt-16 !pb-8">
 				<div class="italic text-slate-300 text">
+					<p class="float-left text-[2rem] mr-1 -mt-2 !mb-0"></p>
 					<p>Hi! I'm Jannik, a 25 year old media computer scientist from Germany.</p>
 					<p>I recently finished my Master's at the University of Tübingen and am now looking for new exciting challenges in the interdisciplinary field of creative media creation and software engineering.</p>
 				</div>
-				<div class="w-full flex justify-start"><img class="h-16 opacity-70" src="/img/signature.png" /></div>
+				<div class="w-full flex justify-start px-2"><img class="h-16 opacity-60" src="/img/signature.png" /></div>
 			</div>
-			<div id="projects" class="pt-16 bg-slate-200">
+			<div id="projects" class="pt-12 pb-8 bg-slate-200">
 				<!-- Importing html from /src/projects.html via javacscript-->
-				<noscript><div class="px-5 pb-16 pt-6 bg-orange-100 border-y-2 border-red-800 mainpaddingx">
+				<noscript><div class="px-5 py-12 bg-orange-100 border-y-2 border-red-800 mainpaddingx">
 					<span class="font-bold text-red-800">Please enable javascript to show my list of projects</span><br /><br />
 					Or <a href="/src/projects.html" class="underline">click here to view my projects</a> and come back using your browsers back button.<br /><br />
 					Please let me know that this is a problem for you by <a target="_blank" class="underline" id='customemail' 
@@ -71,13 +69,13 @@
 				</div></noscript>
 			</div>
 			<div id="education" class="">
-				<div class="px-5 py-12 bg-slate-100 mainpaddingx border-y-2">
-					<span class="font-bold text-primary-800">This website is still in development...</span><br /><br />
+				<div class="bg-gray-300 shadow-inner-up-lg mainpaddingx border-y-2">
+					<div class="py-12 pl-8 smm:-ml-[calc(2rem+12px)]" style="border-left: solid 12px; border-image: repeating-linear-gradient(-7deg, yellow, rgb(255, 238, 0) 20px, rgb(29, 26, 14) 20px, black 40px) 40;">
+					<span class="font-bold text-primary-800">This website is still under development...</span><br /><br />
 					More information about me, my education and professional experience will be available here soon. As well as more projects and a detailed explanation for each one.
 					<br />
-					Meanwhile, if you have any questions, please don't hesitate to <a target="_blank" class="underline" id='customemail' 
-				href="mailto:web@jannikh.com" title="Write an e-mail to web@jannikh.com">send me a quick e-mail</a>.
-				</div>
+					Meanwhile, if you have any questions, please don't hesitate to <a target="_blank" class="underline" id='customemail' href="mailto:web@jannikh.com" title="Write an e-mail to web@jannikh.com">send me a quick e-mail</a>.
+				</div></div>
 			</div>
 			<div id="experience" class="">
 				
@@ -86,7 +84,7 @@
 				
 			</div>
 			
-			<div id="footer">
+			<div id="footer" class="">
 				<!-- Importing html from /src/projects.html via javacscript-->
 				<noscript><div class="px-5 pb-16 pt-6 bg-orange-100 border-y-2 border-red-800 mainpaddingx">
 					<span class="font-bold text-red-800">Please enable javascript to show my contact information</span><br /><br />
@@ -98,5 +96,8 @@
 			</div>
 		</div></main>
 	</div>
+	
+	<!-- <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
+	<script>var rellax = new Rellax('.rellax');</script> -->
 </body>
 </html>

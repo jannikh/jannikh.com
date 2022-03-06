@@ -146,7 +146,7 @@ div:hover > .hiddenbadge, div:active > .hiddenbadge { opacity: 0.8 !important}
 	@apply text-[rgba(255,255,255,0.7)] hover:text-white active:text-white transition-all ease-linear duration-100
 }
 .careernav ul li div, .careernav-bottom ul li div {
-	@apply px-[1rem] py-1
+	@apply px-[1.2rem] py-1
 }
 .careernav ul li a div:before, .careernav-bottom ul li a div:before {
 	@apply transition-all ease-linear duration-100;
@@ -181,7 +181,7 @@ div:hover > .hiddenbadge, div:active > .hiddenbadge { opacity: 0.8 !important}
 .posterdiv {
 	@apply w-full flex justify-center mt-16 -mb-6 max-h-[calc(max(100vh-4rem,100vh*0.8))]
 }
-@media screen and (min-aspect-ratio: 1.1) and (min-width: 30rem) and (max-height: 55rem) {
+@media screen and (min-aspect-ratio: 1.1) and (min-width: 30em) and (max-height: 55em) {
 	.posterdiv {
 		@apply mr-6 mt-4 mb-4 float-left !w-auto !justify-start
 	}
@@ -192,11 +192,33 @@ body.career #projects h2.pagetitle, body.career #projects .intro {
 }
 
 /* fix career teaser for very wide screens: */
-@media screen and (((max-width: 640px) and (max-height: 30rem)) or ((min-width: 640px) and (max-height: 25rem)) or ((min-width: 768px) and (max-height: 27rem))) {
+@media screen and ((max-width: 640px) and (max-height: 30em)), screen and ((min-width: 640px) and (max-height: 25em)), screen and ((min-width: 768px) and (max-height: 27em)) {
 	body.career header.fixed {
 		position: absolute !important;
 	}
 	body.career #aboutme {
 		top: 0 !important;
 	}
+}
+
+/* 3D parallax */
+.bodycontainer {
+	@apply w-screen h-screen overflow-scroll;
+	perspective: 100px;
+}
+.preserve-3d {
+	transform-style: preserve-3d;
+}
+.parallax-container {
+	transform-style: preserve-3d;
+	/* height: 100vh; */
+	position: relative;
+}
+.parallax-container {
+	z-index: -1;
+}
+.parallax {
+	@apply inset-0 absolute;
+	transform: translateZ(-100px) scale(2);
+	background-size: cover;
 }
