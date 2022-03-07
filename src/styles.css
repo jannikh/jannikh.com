@@ -24,6 +24,8 @@ details[open] summary~*, details.is--open summary~* { transform: scaleY(1); } */
 .small-caps { font-variant-caps: small-caps; }
 .break-word { -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; -ms-hyphens: auto; word-break: break-word; }
 
+.trans100 { @apply transition-all ease-linear duration-100 }
+
 .text-shadow { text-shadow: 0 2px 4px rgba(0,0,0,0.10); }
 .text-shadow-md { text-shadow: 0 4px 8px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08); }
 .text-shadow-lg { text-shadow: 0 15px 30px rgba(0,0,0,0.11), 0 5px 15px rgba(0,0,0,0.08); }
@@ -202,7 +204,9 @@ body.career #education ul li { @apply py-8 ml-[1.33rem] relative transition ease
 body.career #education ul > details summary { @apply pl-[1.3rem] text-mdd tracking-wide border-b-[1px] border-dashed border-yaccent-500 w-fit no-underline }
 body.career #education ul > details.is--open summary, body.career #education ul > details[open] summary { @apply border-none }
 body.career #education ul details:last-child, body.career #education ul details li:last-child { @apply pb-0 }
-body.career #education ul li:hover, body.career #education ul li:active { @apply text-white }
+body.career #education ul li:hover, body.career #education ul li:active { @apply text-stone-100 }
+body.career #education ul li .underline { @apply decoration-[rgba(255,255,255,0.5)] transition-all ease-linear duration-100 }
+body.career #education ul li:hover .underline, body.career #education ul li:active .underline { @apply text-white decoration-white decoration-[1.1px] }
 body.career #education ul li:before { content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' color='rgb(255,227,17)' width='12' height='12' viewBox='-1 -1 2 2' style='fill:currentColor;'><circle r='1' /></svg>"); @apply absolute -ml-7 mt-6 text-yellow-500 }
 body.career #education ul li .dates { @apply font-mono }
 body.career #education ul li h4 { @apply font-bold -mt-1 text-lg xs:tracking-wide sm:tracking-wider }
