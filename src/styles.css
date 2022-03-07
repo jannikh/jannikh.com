@@ -16,8 +16,8 @@ html {
 
 a { outline: none !important; }
 
-details summary h4 { @apply underline }
-details[open] summary h4, details.is--open summary h4 { @apply !no-underline }
+details summary { @apply underline cursor-pointer }
+details[open] summary, details.is--open summary { @apply !no-underline }
 /* details summary~* { @apply h-auto transition-all ease-in-out duration-1000; transform: scaleY(0); }
 details[open] summary~*, details.is--open summary~* { transform: scaleY(1); } */
 
@@ -196,6 +196,26 @@ div:hover > .hiddenbadge, div:active > .hiddenbadge { opacity: 0.8 !important}
 body.career #projects h2.pagetitle, body.career #projects .intro {
 	@apply text-center not-italic
 }
+
+body.career #education ul { @apply border-l-2 border-yaccent -ml-1 xs:ml-3 }
+body.career #education ul li { @apply py-8 ml-[1.33rem] relative transition ease-linear duration-100 }
+body.career #education ul > details summary { @apply pl-[1.3rem] text-mdd tracking-wide border-b-[1px] border-dashed border-yaccent-500 w-fit no-underline }
+body.career #education ul > details.is--open summary, body.career #education ul > details[open] summary { @apply border-none }
+body.career #education ul details:last-child, body.career #education ul details li:last-child { @apply pb-0 }
+body.career #education ul li:hover, body.career #education ul li:active { @apply text-white }
+body.career #education ul li:before { content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' color='rgb(255,227,17)' width='12' height='12' viewBox='-1 -1 2 2' style='fill:currentColor;'><circle r='1' /></svg>"); @apply absolute -ml-7 mt-6 text-yellow-500 }
+body.career #education ul li .dates { @apply font-mono }
+body.career #education ul li h4 { @apply font-bold -mt-1 text-lg xs:tracking-wide sm:tracking-wider }
+body.career #education ul li .uni { @apply block font-serif }
+body.career #education ul li .grade { @apply block font-sans mt-2 }
+.gradeval { @apply font-semibold }
+body.career #education ul li .grade span { @apply font-sans }
+body.career #education ul li .subject { @apply block italic }
+body.career #education ul li .additional { @apply block font-semibold }
+body.career #education ul li .additional .small-caps { @apply font-bold }
+body.career #education ul li .focus { @apply block italic font-light }
+body.career #education ul li .thesis { @apply block font-light mt-3 }
+body.career #education ul li .explanation { @apply block italic font-light }
 
 /* fix career teaser for very wide screens: */
 @media screen and ((max-width: 640px) and (max-height: 30em)), screen and ((min-width: 640px) and (max-height: 25em)), screen and ((min-width: 768px) and (max-height: 27em)) {
