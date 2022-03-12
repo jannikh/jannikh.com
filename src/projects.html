@@ -14,6 +14,7 @@
 				}
 				var x = document.getElementsByClassName('byrelevance');
 				x[0].classList.add('active');
+				adaptCardOpacity();
 			}
 			function sortChronologically() {
 				var x = document.getElementsByClassName('cardgrid');
@@ -24,6 +25,7 @@
 				}
 				var x = document.getElementsByClassName('chronologically');
 				x[0].classList.add('active');
+				adaptCardOpacity();
 			}
 			function filterBy(name) {
 				var x = document.getElementsByClassName('cardcontainer');
@@ -42,6 +44,7 @@
 				}
 				var x = document.getElementsByClassName('pill'+name);
 				x[0].classList.add('active');
+				adaptCardOpacity();
 			}
 			function showAll() {
 				var x = document.getElementsByClassName('cardcontainer');
@@ -56,6 +59,7 @@
 				}
 				var x = document.getElementsByClassName('pillShowAll');
 				x[0].classList.add('active');
+				adaptCardOpacity();
 			}
 
 			// adapted from https://codepen.io/mahish/pen/RajmQw
@@ -65,14 +69,29 @@
 			var rightPaddle = document.getElementsByClassName('right-paddle');
 			var paddleMargin = 10;
 
-			var menuWrapperSize = $('.menu-wrapper').outerWidth();
-			$(window).on('resize', function() {
+			var menuWrapperSize;
+			var menuVisibleSize;
+			var menuSize;
+			var menuInvisibleSize;
+			function init() {
 				menuWrapperSize = $('.menu-wrapper').outerWidth();
+				menuVisibleSize = menuWrapperSize;
+				menuSize = $('.menu-content').outerWidth();
+				menuInvisibleSize = menuSize - menuWrapperSize;
+				console.log(menuInvisibleSize);
+				if (menuInvisibleSize <= 0) {
+					$(rightPaddle).addClass('hidden');
+				} else {
+					$(rightPaddle).removeClass('hidden');
+				}
+			}
+			init();
+			$(window).on('resize', function() {
+				init();
+				adaptCardOpacity();
 			});
-			var menuVisibleSize = menuWrapperSize;
-			var menuSize = $('.menu-content').outerWidth();
-			var menuInvisibleSize = menuSize - menuWrapperSize;
 			
+
 			$('.menu').on('scroll', function() {
 				menuInvisibleSize = menuSize - menuWrapperSize;
 				var menuPosition = $('.menu').scrollLeft();
@@ -108,14 +127,17 @@
 					   ( navigator.msMaxTouchPoints > 0 );
 			}
 
-			document.addEventListener('scroll', function() {
-				if (is_touch_enabled()) {
-					const badge_falloff_exponent = 2;
-					const badge_max_opacity = 0.9;
-					const badge_min_opacity = 0;
-					const cards_falloff_exponent = 0.5;
-					const cards_max_opacity = 1;
-					const cards_min_opacity = 1;
+			document.addEventListener('scroll', adaptCardOpacity);
+			function adaptCardOpacity() {
+				const badge_falloff_exponent = 2;
+				const badge_max_opacity = 0.9;
+				const badge_min_opacity = 0;
+				const cards_falloff_exponent = 0.5;
+				const cards_max_opacity = 1;
+				const cards_min_opacity = 1;
+				const cards_max_saturation = 1;
+				const cards_min_saturation = 1;
+				if (is_touch_enabled() && window.innerWidth < 900) {
 					const x = document.getElementsByClassName('hiddenbadge');
 					for (let i = 0; i < x.length; i++) {
 						var toppos = x[i].getBoundingClientRect().top;
@@ -127,9 +149,21 @@
 						if (cards_min_opacity != cards_max_opacity || cards_min_opacity != 1) {
 							x[i].parentElement.style.opacity = cards_min_opacity + opacity ** cards_falloff_exponent * (cards_max_opacity - cards_min_opacity);
 						}
+						if (cards_min_saturation != cards_max_saturation || cards_min_saturation != 1) {
+							x[i].parentElement.style.filter = "grayscale(" + (100 - 100 * (cards_min_saturation + opacity ** cards_falloff_exponent * (cards_max_saturation - cards_min_saturation))).toString() + "%)";
+							// console.log("grayscale(" + (100 - 100 * (cards_min_saturation + opacity ** cards_falloff_exponent * (cards_max_saturation - cards_min_saturation))).toString() + "%)");
+						}
+					}
+				} else {
+					const x = document.getElementsByClassName('hiddenbadge');
+					for (let i = 0; i < x.length; i++) {
+						x[i].style.opacity = badge_min_opacity;
+						x[i].parentElement.style.opacity = cards_max_opacity;
+						x[i].parentElement.style.filter = "grayscale(0%)";
 					}
 				}
-			});
+			}
+			adaptCardOpacity();
 		</script>
 		<noscript><style> .js { display: none } </style></noscript>
 	</head><body lang="en">
@@ -154,18 +188,18 @@
 						<div class="proj-filter overflow-x-auto whitespace-nowrap">
 							<ul class="inline-block">
 								<li class="pill-link pillfilter pillimportant" onclick="filterBy('important')" title="Only show the most important projects">Most important</li>
-								<li class="pill-link pillfilter pillShowAll active" onclick="showAll()" title="Show all of my projects, the full portfolio">Show all (11)</li>
-								<li class="pill-link pillfilter pillresearch" onclick="filterBy('research')" title="Only show research projects">Research</li>
-								<li class="pill-link pillfilter pillai" onclick="filterBy('ai')" title="Only show AI projects">AI</li>
-								<li class="pill-link pillfilter pillcg" onclick="filterBy('cg')" title="Only show projects of computergraphics">Computergraphics</li>
-								<li class="pill-link pillfilter pill3d" onclick="filterBy('3d')" title="Only show 3D and film projects">3D & film</li>
+								<li class="pill-link pillfilter pillShowAll active" onclick="showAll()" title="Show all of my projects, the full portfolio">Show all</li>
+								<li class="pill-link pillfilter pill3d" onclick="filterBy('3d')" title="Only show 3D and film projects">3D & Film</li>
+								<!-- <li class="pill-link pillfilter pillcg" onclick="filterBy('cg')" title="Only show projects of computergraphics">Computergraphics</li> -->
+								<!-- <li class="pill-link pillfilter pillai" onclick="filterBy('ai')" title="Only show AI projects">AI</li> -->
+								<li class="pill-link pillfilter pillresearch" onclick="filterBy('research')" title="Only show research projects">AI & Research</li>
 								<li class="pill-link pillfilter pillopensource" onclick="filterBy('opensource')" title="Only show projects with open-source code or fully downloadable files">Open-source</li>
-								<li class="pill-link pillfilter pillvis" onclick="filterBy('vis')" title="Only show projects visualization and design projects">Visualization & design</li>
+								<li class="pill-link pillfilter pillvis" onclick="filterBy('vis')" title="Only show projects visualization and design projects">Visualization & Design</li>
+								<li class="pill-link pillfilter pillprogramming" onclick="filterBy('programming')" title="Only show programming projects">Programming</li>
 								<li class="pill-link pillfilter pilluni" onclick="filterBy('uni')" title="Only show projects done for university studies">University</li>
 								<li class="pill-link pillfilter pillpersonal" onclick="filterBy('personal')" title="Only show personal projects">Personal projects</li>
-								<li class="pill-link pillfilter pillappgame" onclick="filterBy('appgame')" title="Only show app and game development projects">App & game dev.</li>
-								<li class="pill-link pillfilter pillprogramming" onclick="filterBy('programming')" title="Only show programming projects">Programming</li>
-								<li class="pill-link pillfilter pillcreative" onclick="filterBy('creative')" title="Only show creative projects">Creative</li>
+								<!-- <li class="pill-link pillfilter pillappgame" onclick="filterBy('appgame')" title="Only show app and game development projects">App & game dev.</li> -->
+								<!-- <li class="pill-link pillfilter pillcreative" onclick="filterBy('creative')" title="Only show creative projects">Creative</li> -->
 							</ul>
 						</div>
 					</div>
@@ -225,7 +259,7 @@
 					</div>
 					<div class="hiddenbadge">Nov 2020 - Mar 2021</div>
 				</div></a></div>
-				<div style="order: -201903;" class="cardcontainer important research 3d ai uni appgame cg creative programming"><a target="_blank" href="/career/projects/idle"><div class="card">
+				<div style="order: -201903;" class="cardcontainer important research 3d ai vis uni appgame cg creative programming"><a target="_blank" href="/career/projects/idle"><div class="card">
 					<img src="/img/idle.png" alt="">
 					<div>
 						<span>Android app <i>Image Deep Learning Effects</i></span>
@@ -251,7 +285,7 @@
 					</div>
 					<div class="hiddenbadge">Jan - Mar 2022</div>
 				</div></a></div>
-				<div style="order: -202008;" class="cardcontainer research ai cg vis creative"><a target="_blank" href="/career/projects/creativity"><div class="card">
+				<div style="order: -202008;" class="cardcontainer research ai cg uni vis creative"><a target="_blank" href="/career/projects/creativity"><div class="card">
 					<img src="/img/creativity.png" class="object-top" alt="">
 					<div>
 						<span>Creativity in automatic sketch-based image creation</span>
@@ -275,7 +309,7 @@
 					</div>
 					<div class="hiddenbadge">May - Jul 2021</div>
 				</div></a></div>
-				<div style="order: -201902;" class="cardcontainer research 3d uni cg programming"><a target="_blank" href="/career/projects/bachelor-thesis"><div class="card">
+				<div style="order: -201902;" class="cardcontainer research 3d uni vis cg programming"><a target="_blank" href="/career/projects/bachelor-thesis"><div class="card">
 					<img src="/img/bachelor-thesis-cropped.png" class="object-left sm:!h-32" alt="">
 					<div>
 						<span><div class="inline font-semibold">Bachelor thesis:</div> <i>Automatic semantic mapping of mobile eye-tracking data through keypoint matching and tracking</i></span>
@@ -304,8 +338,8 @@
 				</div></a></div>
 			</div>
 		</div>
-		<div class="js flex justify-center mt-10">
-			<div class="pill-link showAll" onclick="showAll()" title="Show all of my projects, the full portfolio">Show all 11 projects</div>
+		<div class="js flex justify-center mt-10 tracking-wide">
+			<div class="pill-link !text-gray-700 !rounded-lg showAll underline !px-4 pt-1 !pb-[0.4rem]" onclick="showAll()" title="Show all of my projects, the full portfolio">Show all 11 projects</div>
 		</div>
 	</div>
 	<script>filterBy('important')</script>

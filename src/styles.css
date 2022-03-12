@@ -103,11 +103,25 @@ details[open] summary~*, details.is--open summary~* { transform: scaleY(1); } */
 .backlink { @apply absolute pb-3 pt-7 w-full mainpaddingx z-10 text-white text-opacity-60 hover:text-opacity-100 active:text-opacity-100 uppercase text-base bg-black tracking-wider bg-opacity-0 hover:bg-opacity-25 active:bg-opacity-25 }
 
 .pill-link {
-	@apply inline-block rounded-full border-gray-400 text-gray-500 hover:border-gray-500 hover:text-gray-600 border-2 active:border-gray-800 active:text-black active:bg-gray-300 px-2 pb-[0.2rem] ml-1 transition-all ease-linear duration-100 cursor-pointer
+	@apply inline-block rounded-full border-gray-400 text-gray-500 hover:border-gray-500 hover:text-gray-600 border-2 active:border-gray-800 active:text-black active:bg-gray-300 px-2 pb-[0.18rem] ml-1 transition-all ease-linear duration-100 cursor-pointer
 }
 .pill-link.active {
 	@apply border-gray-600 text-gray-700 bg-gray-300 cursor-default
 }
+
+/* pills connected in the middle into one long pill
+.pill-link {
+	@apply inline-block border-gray-400 text-gray-500 hover:border-gray-500 hover:text-gray-600 border-2 active:border-gray-800 active:text-black active:bg-gray-300 hover:z-10 z-0 active:z-10 px-2 pb-[0.2rem] -ml-[calc(0.25rem+1.5px)] transition-all ease-linear duration-100 cursor-pointer
+}
+.pill-link:first-child {
+	@apply rounded-l-full ml-1
+}
+.pill-link:last-child {
+	@apply rounded-r-full
+}
+.pill-link.active {
+	@apply z-10 border-gray-600 text-gray-700 bg-gray-300 cursor-default
+}*/
 
 .cardgrid { @apply mt-8 grid gap-8 sm:gap-6 sm:grid-cols-2 mdd:grid-cols-3 lgg:grid-cols-4 } /* 2xl:grid-cols-5 */
 .cardgrid.byrelevance .cardcontainer { @apply !order-1 }
