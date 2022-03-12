@@ -4,8 +4,107 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Jannik Hofmann - Projects</title>
 		<link rel="stylesheet" href="/build/styles.css">
-	</head><body>
-	<div class="mainpaddingx-wide">
+		<script>
+			function sortByRelevance() {
+				var x = document.getElementsByClassName('cardgrid');
+				x[0].classList.add('byrelevance');
+				var x = document.getElementsByClassName('pillsort');
+				for (let i = 0; i < x.length; i++) {
+					x[i].classList.remove('active');
+				}
+				var x = document.getElementsByClassName('byrelevance');
+				x[0].classList.add('active');
+			}
+			function sortChronologically() {
+				var x = document.getElementsByClassName('cardgrid');
+				x[0].classList.remove('byrelevance');
+				var x = document.getElementsByClassName('pillsort');
+				for (let i = 0; i < x.length; i++) {
+					x[i].classList.remove('active');
+				}
+				var x = document.getElementsByClassName('chronologically');
+				x[0].classList.add('active');
+			}
+			function filterBy(name) {
+				var x = document.getElementsByClassName('cardcontainer');
+				for (let i = 0; i < x.length; i++) {
+					x[i].classList.add('hidden');
+				}
+				var x = document.getElementsByClassName(name);
+				for (let i = 0; i < x.length; i++) {
+					x[i].classList.remove('hidden');
+				}
+				var x = document.getElementsByClassName('showAll');
+				x[0].classList.remove('invisible');
+				var x = document.getElementsByClassName('pillfilter');
+				for (let i = 0; i < x.length; i++) {
+					x[i].classList.remove('active');
+				}
+				var x = document.getElementsByClassName('pill'+name);
+				x[0].classList.add('active');
+			}
+			function showAll() {
+				var x = document.getElementsByClassName('cardcontainer');
+				for (let i = 0; i < x.length; i++) {
+					x[i].classList.remove('hidden');
+				}
+				var x = document.getElementsByClassName('showAll');
+				x[0].classList.add('invisible');
+				var x = document.getElementsByClassName('pillfilter');
+				for (let i = 0; i < x.length; i++) {
+					x[i].classList.remove('active');
+				}
+				var x = document.getElementsByClassName('pillShowAll');
+				x[0].classList.add('active');
+			}
+
+			// adapted from https://codepen.io/mahish/pen/RajmQw
+
+			var scrollDuration = 300;
+			var leftPaddle = document.getElementsByClassName('left-paddle');
+			var rightPaddle = document.getElementsByClassName('right-paddle');
+			var paddleMargin = 10;
+
+			var menuWrapperSize = $('.menu-wrapper').outerWidth();
+			$(window).on('resize', function() {
+				menuWrapperSize = $('.menu-wrapper').outerWidth();
+			});
+			var menuVisibleSize = menuWrapperSize;
+			var menuSize = $('.menu-content').outerWidth();
+			var menuInvisibleSize = menuSize - menuWrapperSize;
+			
+			$('.menu').on('scroll', function() {
+				menuInvisibleSize = menuSize - menuWrapperSize;
+				var menuPosition = $('.menu').scrollLeft();
+				var menuEndOffset = menuInvisibleSize - paddleMargin;
+
+				if (menuPosition <= paddleMargin) {
+					$(leftPaddle).addClass('hidden');
+					$(rightPaddle).removeClass('hidden');
+				} else if (menuPosition < menuEndOffset) {
+					$(leftPaddle).removeClass('hidden');
+					$(rightPaddle).removeClass('hidden');
+				} else if (menuPosition >= menuEndOffset) {
+					$(leftPaddle).removeClass('hidden');
+					$(rightPaddle).addClass('hidden');
+				}
+			});
+
+			var scrollAmount = 0.9 * (menuWrapperSize - $('.left-paddle').outerWidth() - $('.right-paddle').outerWidth());
+			$(rightPaddle).on('click', function() {
+				var scrollPos = $('.menu').scrollLeft() + scrollAmount;
+				scrollPos = Math.min(scrollPos, menuInvisibleSize);
+				$('.menu').animate( { scrollLeft: scrollPos}, scrollDuration);
+			});
+			$(leftPaddle).on('click', function() {
+				var scrollPos = $('.menu').scrollLeft() - scrollAmount;
+				scrollPos = Math.max(0, scrollPos);
+				$('.menu').animate( { scrollLeft: scrollPos}, scrollDuration);
+			});
+		</script>
+		<noscript><style> .js { display: none } </style></noscript>
+	</head><body lang="en">
+	<div class="mainpaddingx-wide mb-16">
 		<header>
 			<h2 class="pagetitle !pb-4">my PROJECTS</h2>
 			<!-- <h3 class="text-2xl font-semibold"></h3> -->
@@ -14,14 +113,66 @@
 			<p>Here are some of the projects I worked on in the past few years. Click on any for a detailed explanation or open-source files.</p>
 			<p>If you have any questions, please don't hesitate to <a href="#contact" class="underline">contact me</a></p>
 		</div>
-
+		
+		<!-- Selector for filters and sorting -->
+		<div class="js text-sm text-gray-500 flex flex-wrap md:flex-nowrap">
+			<div class="flex-none w-full xss:w-auto text-center xss:flex-none xss:mr-1">
+				<span class="font-semibold tracking-wide">Filter:</span>
+			</div>
+			<div class="w-full flex-none mb-4 mt-2 xss:mt-0 xss:flex-1 xss:w-auto relative menu-wrapper overflow-hidden">
+				<div class="relative menu h-10 overflow-x-auto text-sm" style="scrollbar-width: thin; -webkit-overflow-scrolling: touch;">
+					<div class="absolute menu-content">
+						<div class="proj-filter overflow-x-auto whitespace-nowrap">
+							<ul class="inline-block">
+								<li class="pill-link pillfilter pillimportant" onclick="filterBy('important')" title="Only show the most important projects">Most important</li>
+								<li class="pill-link pillfilter pillShowAll active" onclick="showAll()" title="Show all of my projects, the full portfolio">Show all (11)</li>
+								<li class="pill-link pillfilter pillresearch" onclick="filterBy('research')" title="Only show research projects">Research</li>
+								<li class="pill-link pillfilter pillai" onclick="filterBy('ai')" title="Only show AI projects">AI</li>
+								<li class="pill-link pillfilter pillcg" onclick="filterBy('cg')" title="Only show projects of computergraphics">Computergraphics</li>
+								<li class="pill-link pillfilter pill3d" onclick="filterBy('3d')" title="Only show 3D and film projects">3D & film</li>
+								<li class="pill-link pillfilter pillopensource" onclick="filterBy('opensource')" title="Only show projects with open-source code or fully downloadable files">Open-source</li>
+								<li class="pill-link pillfilter pillvis" onclick="filterBy('vis')" title="Only show projects visualization and design projects">Visualization & design</li>
+								<li class="pill-link pillfilter pilluni" onclick="filterBy('uni')" title="Only show projects done for university studies">University</li>
+								<li class="pill-link pillfilter pillpersonal" onclick="filterBy('personal')" title="Only show personal projects">Personal projects</li>
+								<li class="pill-link pillfilter pillappgame" onclick="filterBy('appgame')" title="Only show app and game development projects">App & game dev.</li>
+								<li class="pill-link pillfilter pillprogramming" onclick="filterBy('programming')" title="Only show programming projects">Programming</li>
+								<li class="pill-link pillfilter pillcreative" onclick="filterBy('creative')" title="Only show creative projects">Creative</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="paddles font-bold">
+					<button class="left-paddle hidden absolute left-0 w-10 top-0 bottom-0 bg-gradient-to-l text-left px-2 pt-0 pb-4 from-transparent via-slate-200 to-slate-200 h-10 hover:text-gray-800 active:gray-900">
+						&#5176;
+						<!-- &#5166; -->
+						<!-- &laquo; -->
+					</button>
+					<button class="right-paddle absolute right-0 w-10 top-0 bottom-0 bg-gradient-to-r text-right px-2 pt-0 pb-4 from-transparent via-slate-200 to-slate-200 h-10 hover:text-gray-800 active:gray-900">
+						&#5171;
+						<!-- &#11166; -->
+					</button>
+				</div>
+			</div>
+			<div class="md:ml-4 xss:w-full md:w-auto md:flex-none">
+				<div class="">
+					<div class="proj-filter">
+						<span class="font-semibold tracking-wide">Sort:</span>
+						<ul class="inline-block">
+							<li class="pill-link pillsort byrelevance active" onclick="sortByRelevance()" title="Sort the projects by relevance, the most important first">Relevance</li>
+							<li class="pill-link pillsort chronologically" onclick="sortChronologically()" title="Sort the projects in chronological order, newest first">Chronological</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Card grid with all projects -->
 		<div>
-			<div class="cardgrid mb-16 break-word">
-				<!-- cards go here -->
-				<div><a href="/career/projects/thesis"><div class="card">
-					<img class="!h-32" src="/img/ue26.jpg" alt="">
+			<!-- cards go here -->
+			<div class="cardgrid break-words byrelevance">
+				<div style="order: -202109;" class="cardcontainer important research 3d ai opensource uni appgame cg vis creative programming"><a href="/career/projects/thesis"><div class="card">
+					<img class="sm:!h-32" src="/img/ue26.jpg" alt="">
 					<div class="bg-metal-200 bg-opacity-20">
-						<span class="text-metal-800">Master thesis: <i>Deep neural network visualization in the Unreal Engine for interactive fly-through exploration</i></span>
+						<span class="text-metal-800"><div class="inline font-semibold">Master thesis:</div> <i>Deep neural network visualization in the Unreal Engine for interactive fly-through exploration</i></span>
 						<span class="!text-metal-600">Open-source, extensible and modular framework for visualizing
 							<!-- layout, convolutions, saliency, and integrated gradients -->
 							inner workings
@@ -29,85 +180,104 @@
 					</div>
 					<div class="hiddenbadge">Mar - Sep 2021</div>
 				</div></a></div>
-				<!-- <div><a href="/career/projects/remindful"><div class="card">
-					<img class="!h-32" src="/img/remindful-text.png" alt="">
+				<!-- <div style="order: -202202;" class="cardcontainer important personal appgame creative programming"><a href="/career/projects/remindful"><div class="card">
+					<img class="sm:!h-32" src="/img/remindful-text.png" alt="">
 					<div class="bg-remindful-50 bg-opacity-30">
 						<span class="text-remindful-700">Development of the Android App <i>Remindful</i></span>
 						<span class="!text-remindful-500">Mindfulness app to remind people to take care of themselves</span>
 					</div>
-					<div class="hiddenbadge">Nov 2021 - Feb 2022</div>
+					<div class="hiddenbadge">Nov 2021 - Mar 2022</div>
 				</div></a></div> -->
-				<div><a href="/career/projects/film"><div class="card">
+				<div style="order: -202103;" class="cardcontainer 3d important uni personal creative"><a href="/career/projects/film"><div class="card">
 					<img src="/img/wanderung2.png" alt="">
 					<div class="bg-wood-200 bg-opacity-10">
 						<span class="text-wood-700">Student short film <i class="whitespace-nowrap">The Hike</i></span>
-						<span class="!text-wood-400">10-minute short film written, directed, acted and cut by Tobias Burghardt and me</span>
+						<span class="!text-wood-400">10-minute short film written, directed, acted and edited by Tobias Burghardt and me</span>
 					</div>
 					<div class="hiddenbadge">Nov 2020 - Mar 2021</div>
 				</div></a></div>
-				<div><a href="/career/projects/3d-model"><div class="card">
+				<div style="order: -201903;" class="cardcontainer important research 3d ai uni appgame cg creative programming"><a target="_blank" href="/career/projects/idle"><div class="card">
+					<img src="/img/idle.png" alt="">
+					<div>
+						<span>Android app <i>Image Deep Learning Effects</i></span>
+						<span>Computergraphics app that generates image effects utilizing AI subject segmentation and depth estimation</span>
+					</div>
+					<div class="hiddenbadge">Oct 2018 - Mar 2019</div>
+				</div></a></div>
+				<div style="order: -202104;" class="cardcontainer important 3d opensource uni cg creative"><a href="/career/projects/3d-model"><div class="card">
 					<img src="/img/thanos/mudbox.png" class="!object-scale-down pt-4" style="background: rgba(127,66,121,0.5);
 					background: radial-gradient(circle, rgba(127,66,121,0.5) 0%, rgba(94,48,90,0.6) 100%);" alt="">
 					<div class="bg-thanos-400 bg-opacity-10">
-						<span class="text-thanos-800">3D Modeling a Supervillain</span>
+						<span class="text-thanos-800">3D modeling a supervillain</span>
 						<span class="!text-thanos-600">3D model of the Marvel character Thanos, head sculpted with Mudbox, body, rigging and poses created in Maya</span>
 					</div>
 					<div class="hiddenbadge">Mar - Apr 2021</div>
 				</div></a></div>
-				<!-- <div><a href="/career/projects/idle"><div class="card">
-					<img src="/img/poster.webp" style="background-color: #eeeeee; object-fit: contain;" alt="">
-					<div>
-						<span>Computergraphics app IDLE</span>
-						<span></span>
-					</div>
-					<div class="hiddenbadge">Oct 2018 - Mar 2019</div>
-				</div></a></div> -->
-				<div><a href="/career/projects/website"><div class="card">
-					<img src="/img/website window.png" class="!h-32 !object-cover object-top bg-gradient-radial from-gray-200 to-gray-300 pt-4" alt="">
+				<div style="order: -202203;" class="cardcontainer opensource personal vis creative programming"><a target="_blank" href="/career/projects/website"><div class="card">
+					<img src="/img/website window.png" class="sm:!h-32 object-top bg-gradient-radial from-gray-200 to-gray-300 pt-4" alt="">
 					<!-- image edited from CC open clipart image: https://openclipart.org/detail/334091/webbrowser -->
 					<div class="bg-slate-400 bg-opacity-10">
 						<span class="text-slate-800">Personal website <i class="whitespace-nowrap">jannikh.com</i></span>
-						<span class="!text-slate-600">This very website, fully responsive, handcrafted with Tailwind and hosted by github pages from an open-source repository</span>
+						<span class="!text-slate-600">This very website, fully responsive, handcrafted with Tailwind and hosted as open-source by github pages</span>
 					</div>
 					<div class="hiddenbadge">Jan - Mar 2022</div>
 				</div></a></div>
-				<!-- <div><a href="/career/projects/creativity"><div class="card">
-					<img src="/img/poster.webp" style="background-color: #eeeeee; object-fit: contain;" alt="">
+				<div style="order: -202008;" class="cardcontainer research ai cg vis creative"><a target="_blank" href="/career/projects/creativity"><div class="card">
+					<img src="/img/creativity.png" class="object-top" alt="">
 					<div>
-						<span>Creativity in Automatic Sketch-Based Image Creation</span>
-						<span></span>
+						<span>Creativity in automatic sketch-based image creation</span>
+						<span>Term paper discussing computational creativity on the example of AI-based image generation from sketches</span>
 					</div>
 					<div class="hiddenbadge">Aug 2020</div>
-				</div></a></div> -->
-				<!-- <div><a href="/career/projects/addernet"><div class="card">
-					<img src="/img/poster.webp" style="background-color: #eeeeee; object-fit: contain;" alt="">
+				</div></a></div>
+				<div style="order: -202109;" class="cardcontainer research ai uni programming"><a target="_blank" href="/career/projects/addernet"><div class="card">
+					<img src="/img/addernet.png" class="object-top sm:!h-32 contrast-[0.8] brightness-110" alt="">
 					<div>
-						<span>Embedded Systems: AdderNet</span>
-						<span>Seminar paper reviewing AdderNet</span>
+						<span>Embedded systems: AdderNet</span>
+						<span>Term paper discussing energy-efficient CNNs without multiplication operations on the example of AdderNet</span>
 					</div>
 					<div class="hiddenbadge">May - Sep 2021</div>
-				</div></a></div> -->
-				<!-- <div><a href="/career/projects/3d-mapping"><div class="card">
-					<img src="/img/poster.webp" style="background-color: #eeeeee; object-fit: contain;" alt="">
+				</div></a></div>
+				<div style="order: -202107;" class="cardcontainer research 3d ai uni cg vis"><a target="_blank" href="/career/projects/3d-mapping"><div class="card">
+					<img src="/img/3d-mapping.png" class="sm:!h-32 contrast-95" alt="">
 					<div>
-						<span>Mapping towards 3D scenes and 3D scene reconstruction</span>
-						<span></span>
+						<span>3D scene mapping and reconstruction for eye-tracking data</span>
+						<span>Term paper discussing how to map and visualize eye-tracking data to a 3D scene and reconstruct such 3D scenes</span>
 					</div>
 					<div class="hiddenbadge">May - Jul 2021</div>
-				</div></a></div> -->
-				<!-- <div><a href="/career/projects/bachelor-thesis"><div class="card">
-					<img src="/img/poster.webp" style="background-color: #eeeeee; object-fit: contain;" alt="">
+				</div></a></div>
+				<div style="order: -201902;" class="cardcontainer research 3d uni cg programming"><a target="_blank" href="/career/projects/bachelor-thesis"><div class="card">
+					<img src="/img/bachelor-thesis-cropped.png" class="object-left sm:!h-32" alt="">
 					<div>
-						<span>Mapping towards 3D scenes and 3D scene reconstruction</span>
-						<span></span>
+						<span><div class="inline font-semibold">Bachelor thesis:</div> <i>Automatic semantic mapping of mobile eye-tracking data through keypoint matching and tracking</i></span>
+						<span>Remapping gaze data from head-mounted eye trackers to a static reference frame using POV video</span>
 					</div>
-					<div class="hiddenbadge">May - Jul 2021</div>
-				</div></a></div> -->
-				<!-- Ascii 3D raytracer -->
-				<!-- Ein einzigartiges Programm, das eine dreidimensionale Sicht in einer Welt aus 1000 x 1000 x 1000 Zeichen in der Kommandozeile darstellt. Ursprünglich von mir für ein Informatikreferat mit selbstgewähltem Thema geschrieben, habe ich Anzeige und Bedienung weiter vereinfacht und die Manipulation der Weltgenerierung benutzerfreundlicher gestaltet.  -->
-				<!-- Jump'n'Go -->
-				<!-- Ein Spiel in Excel, bei dem man in einer Welt Items sammeln muss, um durch logisches Kombinieren zum Ziel zu gelangen. Und wem das größte Level (siehe Bild; mein Rekord liegt bei 4,5 Minuten) nicht kompliziert genug ist, der kann sich im Leveleditor (mit GUI, Markierungen und Drag&Drop) ein noch schwierigeres Level erstellen. Viel Spaß -->
+					<div class="hiddenbadge">Nov 2018 - Feb 2019</div>
+				</div></a></div>
+				<div style="order: -201212;" class="cardcontainer 3d opensource personal appgame cg vis programming"><a target="_blank" href="/career/projects/ascii3d"><div class="card">
+					<img src="/img/ascii3d-new.png" class="sm:!h-32 object-bottom" alt="">
+					<div>
+						<span>Ascii 3D raytracer <div class="inline font-normal">(2012)</div></span>
+						<span>Manually written in C, it renders a 1000<sup>3</sup> voxel ascii world in the command line, with movement controls
+							<!-- Originally written by me for a computer science school presentation with a self-selected topic, I have further simplified display and operation and made the manipulation of world generation more user-friendly -->
+						</span>
+					</div>
+					<div class="hiddenbadge">Dec 2012</div>
+				</div></a></div>
+				<div style="order: -201212;" class="cardcontainer opensource personal appgame creative programming"><a target="_blank" href="/career/projects/jump-n-go"><div class="card">
+					<img src="/img/jumpngo-cropped-tight.png" class="sm:!h-32 object-top" alt="">
+					<div>
+						<span>Excel game <i>Jump'n'Go</i> <div class="inline font-normal">(2012)</div></span>
+						<span>Video game in Excel / VBA, where the player has to collect items and abilities, with timed leaderboard and drag & drop level editor</span>
+						<!-- <span>A game in Excel, where you have to collect items in a world to reach the goal by logical combination. And if the biggest level (see picture; my record is 4.5 minutes) is not complicated enough, you can create an even more difficult level in the level editor (with GUI, markers and drag&drop)</span> -->
+					</div>
+					<div class="hiddenbadge">Oct - Dec 2012</div>
+				</div></a></div>
 			</div>
 		</div>
+		<div class="js flex justify-center mt-10">
+			<div class="pill-link showAll" onclick="showAll()" title="Show all of my projects, the full portfolio">Show all 11 projects</div>
+		</div>
 	</div>
+	<script>filterBy('important')</script>
 </body></html>

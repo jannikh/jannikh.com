@@ -15,14 +15,15 @@ html {
 .empty-space { @apply invisible -z-50 pointer-events-none block }
 
 a { outline: none !important; }
+.always-hidden { display: none !important; }
 
-details summary { @apply underline cursor-pointer }
-details[open] summary, details.is--open summary { @apply !no-underline }
+details summary, details summary h4 { @apply underline cursor-pointer }
+details[open] summary, details.is--open summary, details[open] summary h4, details.is--open summary h4 { @apply !no-underline }
 /* details summary~* { @apply h-auto transition-all ease-in-out duration-1000; transform: scaleY(0); }
 details[open] summary~*, details.is--open summary~* { transform: scaleY(1); } */
 
 .small-caps { font-variant-caps: small-caps; }
-.break-word { -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; -ms-hyphens: auto; word-break: break-word; }
+.break-words { -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; -ms-hyphens: auto; word-break: break-word; }
 
 .trans100 { @apply transition-all ease-linear duration-100 }
 
@@ -101,11 +102,19 @@ details[open] summary~*, details.is--open summary~* { transform: scaleY(1); } */
 
 .backlink { @apply absolute pb-3 pt-7 w-full mainpaddingx z-10 text-white text-opacity-60 hover:text-opacity-100 active:text-opacity-100 uppercase text-base bg-black tracking-wider bg-opacity-0 hover:bg-opacity-25 active:bg-opacity-25 }
 
-.cardgrid { @apply mt-8 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 }
+.pill-link {
+	@apply inline-block rounded-full border-gray-400 text-gray-500 hover:border-gray-500 hover:text-gray-600 border-2 active:border-gray-800 active:text-black active:bg-gray-300 px-2 pb-[0.2rem] ml-1 transition-all ease-linear duration-100 cursor-pointer
+}
+.pill-link.active {
+	@apply border-gray-600 text-gray-700 bg-gray-300 cursor-default
+}
+
+.cardgrid { @apply mt-8 grid gap-8 sm:gap-6 sm:grid-cols-2 mdd:grid-cols-3 lgg:grid-cols-4 } /* 2xl:grid-cols-5 */
+.cardgrid.byrelevance .cardcontainer { @apply !order-1 }
 /* with md:navigation on left third:
 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 */
-.card { @apply h-auto bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl active:shadow-xl relative transform transition ease-in-out duration-100 hover:text-black hover:scale-102 hover:bg-white active:text-black active:scale-102 active:bg-white }
-.card > img:first-child { @apply w-full h-32 sm:h-48 object-cover overflow-hidden transform transition ease-in-out duration-100 shadow-inner }
+.card { @apply h-auto bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl active:shadow-xl relative transform transition ease-in-out duration-100 hover:text-black hover:scale-102 hover:bg-white active:text-black active:scale-102 active:bg-white xs:grid xs:grid-cols-2 sm:grid-cols-none }
+.card > img:first-child { @apply w-full max-h-32 sm:max-h-full xs:w-full xs:h-0 xs:min-h-full sm:min-h-0 sm:h-48 object-cover overflow-hidden transform transition ease-in-out duration-100 shadow-inner }
 .card:hover > img:first-child { @apply brightness-105 }
 .card > div:first-of-type { @apply p-4 pt-2 h-auto !bg-opacity-0 }
 .card:hover > div, .card:active > div { @apply bg-opacity-0 }
@@ -187,7 +196,7 @@ div:hover > .hiddenbadge, div:active > .hiddenbadge { opacity: 0.8 !important}
 }
 
 .posterdiv {
-	@apply w-full flex justify-center mt-16 -mb-6 max-h-[calc(max(100vh-4rem,100vh*0.8))]
+	@apply w-full flex justify-center mt-16 -mb-6 max-h-[calc(max(100vh-4rem,100vh*0.8,15rem))]
 }
 @media screen and (min-aspect-ratio: 1.1) and (min-width: 30em) and (max-height: 55em) {
 	.posterdiv {

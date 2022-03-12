@@ -10,6 +10,20 @@ module.exports = {
     './career/**/*.html',
   ],
   theme: {
+    screens: {
+      xs: '400px',
+      xsa: '480px',
+      xss: '520px',
+      sm: '640px',
+      sma: '680px',
+      smm: '720px',
+      md: '768px',
+      mdd: '900px',
+      lg: '1024px',
+      lgg: '1080px',
+      xl: '1280px',
+      '2xl': '1536px',
+    },
     extend: {
       colors: {
         textc: '#374151',
@@ -36,20 +50,6 @@ module.exports = {
         102: '1.02',
         103: '1.03',
         104: '1.04',
-      },
-      screens: {
-        xs: '400px',
-        xsa: '480px',
-        xss: '520px',
-        sm: '640px',
-        sma: '680px',
-        smm: '720px',
-        md: '768px',
-        mdd: '900px',
-        lg: '1024px',
-        lgg: '1080px',
-        xl: '1280px',
-        '2xl': '1536px',
       },
       backgroundImage: {
         none: 'none',
