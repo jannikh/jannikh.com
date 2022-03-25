@@ -17,6 +17,10 @@ html {
 a { outline: none !important; }
 .always-hidden { display: none !important; }
 
+::-moz-selection { /* Code for Firefox */ @apply text-white bg-[rgba(25,32,120,1)] }
+
+::selection { @apply text-white bg-[rgba(25,32,120,1)] }
+
 details summary, details summary h4 { @apply underline cursor-pointer }
 details[open] summary, details.is--open summary, details[open] summary h4, details.is--open summary h4 { @apply !no-underline }
 /* details summary~* { @apply h-auto transition-all ease-in-out duration-1000; transform: scaleY(0); }
