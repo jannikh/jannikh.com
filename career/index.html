@@ -30,9 +30,13 @@
 		<!-- absolute rellax -->
 		<header class="fixed z-10 h-[calc(100vh-6rem)] min-h-[30rem] w-full overflow-hidden" data-rellax-speed="-5">
 			<a href="#aboutme" class="cursor-default"><div class="relative w-full h-full">
-				<div class="absolute bottom-0 top-0 left-0 right-0 shadow-inner-lg-up overflow-visible" style="background-image: url('/img/shooting star denoise.jpeg'); transform: scaleX(-1.03) scaleY(1.03);"><!-- workaround due to weird blurring beahvior at edges -->
-					<div class="w-full h-full -right-10 bg-cover bg-center bg-fixed blur-sm transition ease-in-out duration-1000" style="background-image: url('/img/shooting star denoise.jpeg'); transform: scaleX(-1.03) scaleY(1.03);">
-						<div class="bg-gradient-to-b from-[#000000aa] via-transparent to-[#00000033] opacity-60 hover:opacity-60 w-full h-full mix-blend-color-burn"></div>
+				<!-- <div class="absolute bottom-0 top-0 left-0 right-0 shadow-inner-lg-up overflow-visible" style="background-image: url('/img/shooting star denoise.jpeg'); transform: scaleX(-1.03) scaleY(1.03);"> -->
+				<!-- workaround due to weird blurring beahvior at edges -->
+				<div class="absolute bottom-0 top-0 left-0 right-0 shadow-inner-lg-up overflow-visible" style="background-image: url('/img/profilepic3-centered.jpg'); transform: scaleX(-1.03) scaleY(1.03);">
+					<!-- <div class="w-full h-full -right-10 bg-cover bg-center bg-fixed blur-sm transition ease-in-out duration-1000" style="background-image: url('/img/shooting star denoise.jpeg'); transform: scaleX(-1.03) scaleY(1.03);"> -->
+					<div class="w-full h-full -right-10 bg-cover bg-center bg-fixed transition ease-in-out duration-1000" style="background-image: url('/img/profilepic3-centered.jpg'); transform: scaleX(-1.03) scaleY(1.03);">
+						<div class="bg-gradient-to-b from-black via-transparent to-[#000000aa] opacity-90 hover:opacity-90 w-full h-full mix-blend-color-burn"></div>
+						<!-- <div class="bg-gradient-to-b from-[#000000aa] via-transparent to-[#00000033] opacity-60 hover:opacity-60 w-full h-full mix-blend-color-burn"></div> -->
 						<!-- <div class="bg-gradient-to-b from-transparent to-[#00000077] opacity-100 hover:opacity-100 w-full h-full transition ease-in-out duration-1000"></div> -->
 					</div>
 				</div>
@@ -44,7 +48,8 @@
 					<li><a href="#skills" title="See what skills I have"><div>Skills</div></a></li>
 					<li><a href="#contact" title="Feel free to contact me :)"><div>Contact</div></a></li>
 				</ul></nav>
-				<a href="#aboutme" class="cursor-default"><img class="z-20 rounded-full shadow-xl w-48 sm:w-[calc(37.5vw-3rem)] mdd:w-72 -mr-24 absolute -mb-24 right-1/2 bottom-[50%] sm:bottom-56 sm:-mb-[calc((37.5vw-3rem)/2)] mdd:-mb-36 sm:mr-auto right-sm-mainpaddingx right-lg-mainpaddingx lg:mr-0" src="/img/profilepic1.png"></a>
+				<!-- <a href="#aboutme" class="cursor-default"><img class="z-20 rounded-full shadow-xl w-48 sm:w-[calc(37.5vw-3rem)] mdd:w-72 -mr-24 absolute -mb-24 right-1/2 bottom-[50%] sm:bottom-56 sm:-mb-[calc((37.5vw-3rem)/2)] mdd:-mb-36 sm:mr-auto right-sm-mainpaddingx right-lg-mainpaddingx lg:mr-0" src="/img/profilepic1.png"></a> -->
+				<!-- <a href="#aboutme" class="cursor-default"><img class="z-20 rounded-full shadow-xl w-48 sm:w-[calc(37.5vw-3rem)] mdd:w-72 -mr-24 absolute -mb-24 right-1/2 bottom-[50%] sm:bottom-56 sm:-mb-[calc((37.5vw-3rem)/2)] mdd:-mb-36 sm:mr-auto right-sm-mainpaddingx right-lg-mainpaddingx lg:mr-0" src="/img/profilepic2.jpeg"></a> -->
 
 				<a href="#aboutme" class="cursor-default bottom-0 absolute w-full"><div class="w-full bottom-0 flex items-end justify-center sm:justify-start py-[calc(max(25vh-6rem,3rem))] sm:py-48 sm-mainpaddingx"><h2 class="z-10 pagetitle !text-white text-shadow-2xl !font-normal !border-[rgba(255,255,255,0.2)] tracking-[calc(max(0rem,min(1vw-0.4rem,0.2rem)))] !text-[calc(min(11vw,2.8rem))] smm:[3rem] !px-0"><span class="">J</span>annik<span class="mdd:hidden"> </span><span class="hidden mdd:inline-block">&ensp;</span><span class="">H</span>ofmann</h2></div></a>
 				<!-- <h3 class="text-2xl font-semibold"></h3> -->
@@ -52,16 +57,24 @@
 		</header>
 		<div id="top" class="empty-space h-[calc(100vh-6rem)] min-h-[30rem] w-full"></div>
 		<main><div class="z-20 absolute shadow-2xl-up">
-			<div id="aboutme" class="relative -top-[11rem] xs:-top-[7.5rem] sm:-top-[4.5rem] sma:!-top-[calc(5vh+6rem)] empty-space"></div>
+			<div id="aboutme" class="relative -top-[calc(11rem)] xs:-top-[calc(7.5rem)] sm:-top-[calc(4.5rem)] sma:!-top-[calc(5vh+6rem)] empty-space"></div>
 			<div class="mainarea bg-gray-800 !min-h-0 sm:grid sm:grid-cols-1 text-justify !pt-16 !pb-16">
 				<div class="italic text-slate-300 text leading-relaxed indent-6 md:indent-0 break-words">
 					<p class="float-left text-[2rem] mr-1 -mt-2 !-mb-4 indent-0"></p>
-					<p class="indent-0">Hi! I'm Jannik, a 25-year-old Media Computer Scientist and Computer Graphics Engineer from Germany.</p>
+					<!-- media description -->
+					<!-- <p class="indent-0">Hi! I'm Jannik, a 25-year-old Media Computer Scientist and Computer Graphics Engineer from Germany.</p>
 					<p>I recently finished my Master's at the University of Tübingen, having gained invaluable practical experience in 3D computer graphics, filmmaking, Unreal pipeline building, AI and motion capture.</p>
-					<p>Now I'm excited for new fascinating challenges overlapping creativity and technological innovation.
-						<!-- With a big fascination for computer graphics, filmmaking and technical problem solving, I feel very comfortable with any task overlapping creativity and technological innovation. -->
-					</p>
-					<p class="mt-16 text-slate-400">If you happen to have any question regarding me, my projects or anything else, please <a class="underline" href="#contact" title="Feel free to contact me :)">contact me</a>. I'm always happy to respond :)</p>
+					<p>Now I'm excited for new fascinating challenges overlapping creativity and technological innovation.</p> -->
+						<!-- With a big fascination for computer graphics, filmmaking and technical problem solving, I feel very comfortable with any task overlapping creativity and technological innovation.
+					<p>Now I'm excited for new fascinating challenges technological innovation.</p> -->
+					
+					<!-- business-focused -->
+					<!-- <a class="cursor-default"><img class="z-20 rounded-full shadow-xl relative mainpaddingx-remove w-48 left-[calc(50vw-6rem)] -mt-40 mb-8" src="/img/profilepic2.jpeg"></a> -->
+					<a class="cursor-default"><img class="z-20 rounded-full shadow-xl w-48 float-left mr-8 mb-2" style="shape-outside: circle(50%);" src="/img/profilepic2.jpeg"></a>
+					<p class="indent-0">Hi! I'm Jannik, a 25-year-old Media Computer Scientist and Computer Engineer from Germany.</p>
+					<p>I recently finished my Master's at the University of Tübingen, having gained invaluable practical experience in agile development, project management, startup environments, system administration and network technologies.</p>
+					<p>Now I'm excited to work with great people on new fascinating challenges in the technological domain.</p>
+					<p class="mt-16 text-slate-400">If you happen to have any question regarding me, my projects or anything else, feel free to <a class="underline" href="#contact" title="Feel free to contact me :)">contact me</a>. I'm always happy to respond :)</p>
 					<div class="w-full flex justify-start px-2"><img class="h-16 opacity-60" src="/img/signature.png" /></div>
 					<!-- <div class="mt-16 text-slate-400">
 						<details>
@@ -238,7 +251,7 @@
 								<p class="ml-5">- Relaying general doubts and uncertainties about the subject matter to the professor, aiding in designing the course optimally for the students' learning progress</p>
 								<p class="ml-5">- Motivating students to strengthen their own approaches to problem solving, to ask questions about uncertainties and to help each other through teamwork</p>
 								<p class="ml-5">- Keeping track of fairness within student submissions and upholding academic integrity standards</p>
-								<p class="ml-5">- Grading weekly exercise sheets and final exams, providing valuable individual feedback so they can track and improve their individual learning progress</p>
+								<p class="ml-5">- Grading weekly exercise sheets and final exams, providing valuable individual feedback so they can track and improve their own learning progress</p>
 								<!-- <p><br /></p> -->
 							</details>
 						</span>
@@ -347,14 +360,15 @@
 				<br />
 				Meanwhile, if you have any questions, please don't hesitate to <a target="_blank" class="underline" id='customemail' href="mailto:web@jannikh.com" title="Write an e-mail to web@jannikh.com">send me a quick e-mail</a>.
 			</div></div> -->
-			<div class="bg-gray-300 shadow-inner-up-lg mainpaddingx border-t-2 border-slate-200">
+
+			<!-- <div class="bg-gray-300 shadow-inner-up-lg mainpaddingx border-t-2 border-slate-200">
 				<div class="py-12">
 				<span class="font-bold text-primary-800">This website is constantly being expanded</span><br /><br />
 				I am regularly adding more and more information to this website to provide you with as many details and information as I can.
 				More explanations, other sections and additional files for download will be provided soon.
 				<br />
 				Meanwhile, if you have any questions, please don't hesitate to <a target="_blank" class="underline" id='customemail' href="mailto:web@jannikh.com" title="Write an e-mail to web@jannikh.com">send me a quick e-mail</a>.
-			</div></div>
+			</div></div> -->
 			
 			<div id="footer" class="">
 				<!-- Importing html from /src/projects.html via javacscript-->
