@@ -1,0 +1,29 @@
+{% set navigation = [
+    {"name": "Hopsa", "path": "/"},
+    {"name": "Ensemble", "path": "/ensemble"},
+    {"name": "Social Media", "path": "/links"},
+    {"name": "Kontakt", "path": "/kontakt"},
+    {"name": "Auftritte", "path": "/termine"},
+    {"name": "Improvisation", "path": "/improvisation"}
+] %}
+    {# {"name": "Kurse", "path": "/kurs"}, #}
+
+<header class="bg-black text-white">
+    <nav class="container mx-auto py-0 px-0 sm:px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="x-bg-red-900 min-w-full flex items-center justify-between overflow-x-auto px-6 sm:px-0 -ml-6">
+                    <div class="flex items-center">
+                        {% for link in navigation %}
+                            {% set isActive = (page.url == link.path) or (page.url == link.path + '/') or (page.url | slice(0, link.path | length + 1) == link.path + '/') %}
+                            <a class="text-white overflow-visible py-3 my-3 px-6 border-transparent border-b-2 hover:border-red-800 hover:text-red-800 transition-all duration-200 {% if isActive %}border-b-2 border-white{% endif %}" href="{{ link.path }}">
+                                {% if link.name == "Home" %}<img src="/assets/favicon/favicon_transparent.png" alt="Hopsa Logo" class="w-5 h-5 inline -mt-1">&nbsp;{% endif %}{{ link.name }}
+                            </a>
+                        {% endfor %}
+                    </div>
+                    <div>
+                    <a href="/kurs" class="ml-6 px-4 py-2 border border-white rounded-sm hover:bg-white hover:text-black transition-colors whitespace-nowrap">Mitmachen</a>
+                    </div>
+            </div>
+        </div>
+    </nav>
+</header>

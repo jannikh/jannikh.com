@@ -1,0 +1,40 @@
+[
+  { "from": ".", "to": "/career" },
+  { "from": "/thesis", "to": "/career/projects/thesis" },
+  { "from": "/masterthesis", "to": "/career/projects/thesis" },
+  { "from": "/master-thesis", "to": "/career/projects/thesis" },
+  { "from": "/masterarbeit", "to": "/career/projects/thesis" },
+  { "from": "/master", "to": "/career/projects/thesis" },
+  
+  { "from": "/film", "to": "/career/projects/film" },
+  { "from": "/kurzfilm", "to": "/career/projects/film" },
+  { "from": "/shortfilm", "to": "/career/projects/film" },
+  { "from": "/short-film", "to": "/career/projects/film" },
+  { "from": "/movie", "to": "/career/projects/film" },
+  { "from": "/wanderung", "to": "/career/projects/film" },
+  { "from": "/diewanderung", "to": "/career/projects/film" },
+  { "from": "/die-wanderung", "to": "/career/projects/film" },
+  { "from": "/hike", "to": "/career/projects/film" },
+  { "from": "/thehike", "to": "/career/projects/film" },
+  { "from": "/the-hike", "to": "/career/projects/film" },
+  
+  { "from": "/contact", "to": "/career#contact" },
+  { "from": "/kontact", "to": "/career#contact" },
+  
+  { "from": "insta", "to": "https://www.instagram.com/jannikh4/" },
+  { "from": "instagram", "to": "https://www.instagram.com/jannikh4/" },
+  { "from": "yt", "to": "https://www.youtube.com/@jannikh" },
+  { "from": "youtube", "to": "https://www.youtube.com/@jannikh" },
+  { "from": "social/insta", "to": "https://www.instagram.com/jannikh4/" },
+  { "from": "social/instagram", "to": "https://www.instagram.com/jannikh4/" },
+  { "from": "social/yt", "to": "https://www.youtube.com/@jannikh" },
+  { "from": "social/youtube", "to": "https://www.youtube.com/@jannikh" },
+
+  { "from": "impro", "to": "https://hopsa-berlin.de" },
+  { "from": "improtheater", "to": "https://hopsa-berlin.de" },
+  { "from": "hopsa", "to": "https://hopsa-berlin.de" },
+
+  { "from": "email", "to": "mailto:web@jannikh.com" },
+  { "from": "mail", "to": "mailto:web@jannikh.com" }
+]
+  

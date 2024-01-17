@@ -1,138 +1,41 @@
+/** @type {import('tailwindcss').Config} */
+
+const colors = require('tailwindcss/colors');
+
 module.exports = {
-  mode: 'jit',
-  purge: [
-    './**/*.html',
-  ],
-  content: [
-    // './**/*.html',
-    './*.html',
-    './career/*.html',
-    './career/**/*.html',
+  purge: false, // Disable PurgeCSS during development
+  plugins: [
+    require('@tailwindcss/typography'),
   ],
   theme: {
-    screens: {
-      xs: '400px',
-      xsa: '480px',
-      xss: '520px',
-      sm: '640px',
-      sma: '680px',
-      smm: '720px',
-      md: '768px',
-      mdd: '900px',
-      lg: '1024px',
-      lgg: '1080px',
-      xl: '1280px',
-      xla: '1444px',
-      '2xl': '1536px',
-    },
     extend: {
+      fontFamily: {
+        'serif': ['Merriweather', 'serif'],
+        'sans': ['Roboto', 'sans-serif']
+      },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            // Configure styles for headings within prose class
+            'h1, h2, h3, h4, h5, h6': {
+              // Add your desired heading styles here
+              fontWeight: 'bold',
+              // Adjust other styles as needed
+            },
+          },
+        },
+      }),
       colors: {
-        textc: '#374151',
-        'primary': {  DEFAULT: '#117471',  '50': '#BAF5E5',  '100': '#9DF1DD',  '200': '#63E9CF',  '300': '#29E0C7',  '400': '#19AEA1',  '500': '#117471',  '600': '#0C5355',  '700': '#083236', '750': '#062326',  '800': '#031416',  '900': '#000000'},
-        // https://www.tailwindshades.com/#color=178%2C75%2C26&step-up=13&step-down=7&hue-shift=-31&name=primary&overrides=e30%3D
-        
-        'accent': {  DEFAULT: '#FFE311',  '50': '#FFF9B2',  '100': '#FFF7A0',  '200': '#FFF37C',  '300': '#FFEE58',  '400': '#FFE935',  '500': '#FFE311',  '600': '#D3B800',  '700': '#968200',  '800': '#584C00',  '900': '#1B1700'},
-        'accent2': {  DEFAULT: '#147F75',  '50': '#DBF9F3',  '100': '#BCF4EA',  '200': '#7EEBD9',  '300': '#41E1CA',  '400': '#1EBDAA',  '500': '#147F75',  '600': '#0E5C56',  '700': '#093936',  '800': '#031515',  '900': '#000000'},
-        'xslate': {  DEFAULT: '#496FA6',  '50': '#C2D0E4',  '100': '#B4C5DE',  '200': '#98AFD2',  '300': '#7B9AC5',  '400': '#5F84B9',  '500': '#496FA6',  '600': '#38557F',  '700': '#273B58',  '800': '#162131',  '900': '#04070A'},
-        'great-blue': {  DEFAULT: '#2A669F',  '50': '#E4F7F8',  '100': '#CCEEF2',  '200': '#9CD7E5',  '300': '#6CB9D8',  '400': '#3B94CB',  '500': '#2A669F',  '600': '#234B83',  '700': '#1B3366',  '800': '#14204A',  '900': '#0C102E'},
-        'uni': {  DEFAULT: '#AA2541',  '50': '#EEB0B8',  '100': '#EA9DA8',  '200': '#E17788',  '300': '#D9526A',  '400': '#D02D4D',  '500': '#AA2541',  '600': '#801C33',  '700': '#561323',  '800': '#2C0A13',  '900': '#020101'},
-        'remindful': {  DEFAULT: '#147F75',  '50': '#DBF9F3',  '100': '#BCF4EA',  '200': '#7EEBD9',  '300': '#41E1CA',  '400': '#1EBDAA',  '500': '#147F75',  '600': '#0E5C56',  '700': '#093936',  '800': '#031515',  '900': '#000000'},
-        'metal': {  DEFAULT: '#6A7298',  '50': '#D7D9E3',  '100': '#CACEDB',  '200': '#B2B7CA',  '300': '#9AA0B9',  '400': '#8289A9',  '500': '#6A7298',  '600': '#535977',  '700': '#3C4056',  '800': '#252735',  '900': '#0E0F14'},
-        'wood': {  DEFAULT: '#6B5645',  '50': '#D6CABF',  '100': '#CCBDB0',  '200': '#B8A391',  '300': '#A48972',  '400': '#8A6F59',  '500': '#6B5645',  '600': '#524235',  '700': '#392E25',  '800': '#211A15',  '900': '#080605'},
-        'thanos': {  DEFAULT: '#A15397',  '50': '#EBD8E6',  '100': '#E3C9DD',  '200': '#D3AACB',  '300': '#C48CBA',  '400': '#B46EAA',  '500': '#A15397',  '600': '#7F4279',  '700': '#5E305A',  '800': '#3C1F3A',  '900': '#1A0E1A'},
-
-      },
-      content: {
-        none: 'none',
-        empty: '""',
-      },
-      scale: {
-        101: '1.01',
-        102: '1.02',
-        103: '1.03',
-        104: '1.04',
-      },
-      backgroundImage: {
-        none: 'none',
-        'gradient-to-t': 'linear-gradient(to top, var(--tw-gradient-stops))',
-        'gradient-to-tr': 'linear-gradient(to top right, var(--tw-gradient-stops))',
-        'gradient-to-r': 'linear-gradient(to right, var(--tw-gradient-stops))',
-        'gradient-to-br': 'linear-gradient(to bottom right, var(--tw-gradient-stops))',
-        'gradient-to-b': 'linear-gradient(to bottom, var(--tw-gradient-stops))',
-        'gradient-to-bl': 'linear-gradient(to bottom left, var(--tw-gradient-stops))',
-        'gradient-to-l': 'linear-gradient(to left, var(--tw-gradient-stops))',
-        'gradient-to-tl': 'linear-gradient(to top left, var(--tw-gradient-stops))',
-        'gradient-radial': 'radial-gradient(circle, var(--tw-gradient-stops))',
-      },
-      blur: {
-        0: '0',
-        none: '0',
-        xs: '2px',
-        sm: '4px',
-        DEFAULT: '8px',
-        md: '12px',
-        lg: '16px',
-        xl: '24px',
-        '2xl': '40px',
-        '3xl': '64px',
-      },
-      boxShadow: {
-        sm: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
-        DEFAULT: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
-        md: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
-        lg: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
-        xl: '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
-        '2xl': '0 25px 50px -12px rgb(0 0 0 / 0.25)',
-        'inner-sm': 'inset 0 1px 3px 0 rgb(0 0 0 / 0.03)',
-        inner: 'inset 0 2px 4px 0 rgb(0 0 0 / 0.05)',
-        'inner-md': 'inset 0 3px 6px 1px rgb(0 0 0 / 0.1)',
-        'inner-lg': 'inset 0 4px 10px 3px rgb(0 0 0 / 0.1)',
-        'inner-xl': 'inset 0 6px 15px 5px rgb(0 0 0 / 0.1)',
-        'inner-2xl': 'inset 0 10px 25px 6px rgb(0 0 0 / 0.25)',sm: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
-        'sm-up': '0 -1px 2px 0 rgb(0 0 0 / 0.05)',
-        'DEFAULT-up': '0 -1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
-        'md-up': '0 -4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
-        'lg-up': '0 -10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
-        'xl-up': '0 -20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
-        '2xl-up': '0 -25px 50px -12px rgb(0 0 0 / 0.25)',
-        'inner-sm-up': 'inset 0 -1px 3px 0 rgb(0 0 0 / 0.03)',
-        'inner-up': 'inset 0 -2px 4px 0 rgb(0 0 0 / 0.05)',
-        'inner-md-up': 'inset 0 -3px 6px 1px rgb(0 0 0 / 0.1)',
-        'inner-lg-up': 'inset 0 -4px 10px 3px rgb(0 0 0 / 0.1)',
-        'inner-xl-up': 'inset 0 -6px 15px 5px rgb(0 0 0 / 0.1)',
-        'inner-2xl-up': 'inset 0 -10px 25px 6px rgb(0 0 0 / 0.25)',
-        'neo-sm': '1px 1px 2px 0 rgba(0,0,0,0.16), -1px -1px 2px 0 #FFFFFF;',
-        'neo': '1.75px 1.75px 3px 0 rgba(0,0,0,0.16), -1.5px -1.5px 3px 0 #FFFFFF;',
-        'neo-md': '3.5px 3.5px 6px 0 rgba(0,0,0,0.16), -2.75px -2.75px 5.5px 0 #FFFFFF;',
-        'neo-lg': '8px 8px 15px 0 rgba(0,0,0,0.16), -6.5px -6.5px 13px 0 #FFFFFF;',
-        'neo-xl': '14px 14px 25px 0 rgba(0,0,0,0.16), -11px -11px 22px 0 #FFFFFF;',
-        'neo-2xl': '28px 28px 50px 0 rgba(0,0,0,0.16), -23px -23px 45px 0 #FFFFFF;',
-        none: 'none',
-      },
-      fontSize: {
-        xs: ['0.75rem', { lineHeight: '1rem' }],
-        xss: ['0.8125rem', { lineHeight: '1.125rem' }],
-        sm: ['0.875rem', { lineHeight: '1.25rem' }],
-        smm: ['0.9375rem', { lineHeight: '1.375rem' }],
-        base: ['1rem', { lineHeight: '1.5rem' }],
-        md: ['1rem', { lineHeight: '1.5rem' }],
-        mdd: ['1.0625rem', { lineHeight: '1.625rem' }],
-        lg: ['1.125rem', { lineHeight: '1.75rem' }],
-        lgg: ['1.1875rem', { lineHeight: '1.875rem' }],
-        xl: ['1.25rem', { lineHeight: '1.75rem' }],
-        '2xl': ['1.5rem', { lineHeight: '2rem' }],
-        '3xl': ['1.875rem', { lineHeight: '2.25rem' }],
-        '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
-        '5xl': ['3rem', { lineHeight: '1' }],
-        '6xl': ['3.75rem', { lineHeight: '1' }],
-        '7xl': ['4.5rem', { lineHeight: '1' }],
-        '8xl': ['6rem', { lineHeight: '1' }],
-        '9xl': ['8rem', { lineHeight: '1' }],
+        orangex: {
+          DEFAULT: '#9A3412',
+        },
+        fuchsiax: {
+          DEFAULT: '#701A75',
+        },
+        neutralx: {
+          DEFAULT: '#404040',
+        },
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-    // ...
-  ],
 }

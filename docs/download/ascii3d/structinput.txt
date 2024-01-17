@@ -1,0 +1,191 @@
+'Erklärung_was_diese_ganzen_Kommandos_bedeuten_unten.
+'Ist_gar_nicht_so_schwer_wie's_aussieht.
+'
+'Clear
+s:"world@from@file-input@is@being@created..."
+s:"world@is@being@cleared@first:@@@0@%@done"
+q:000,999;000,999,099,099,@.
+s:"{{{{{{{{{{@@1@%@done"
+q:000,999;000,999,100,199,@.
+s:"{{{{{{{{{{@12@%@done"
+q:000,999;000,999,200,299,@.
+s:"{{{{{{{{{{@23@%@done"
+q:000,999;000,999,300,399,@.
+s:"{{{{{{{{{{@34@%@done"
+q:000,999;000,999,400,499,@.
+s:"{{{{{{{{{{@45@%@done"
+q:000,999;000,999,500,599,@.
+s:"{{{{{{{{{{@56@%@done"
+q:000,999;000,999,600,699,@.
+s:"{{{{{{{{{{@67@%@done"
+q:000,999;000,999,700,799,@.
+s:"{{{{{{{{{{@78@%@done"
+q:000,999;000,999,800,899,@.
+s:"{{{{{{{{{{@89@%@done"
+q:000,999;000,999,900,999,@.
+s:"{{{{{{{{{{100@%@done"
+s:"world@cleared."
+'skybox
+'q:000,999;000,999;000,000=n.
+'q:000,999;000,999;999,999=n.
+'q:000,999;000,000;000,999=n.
+'q:000,999;999,999;000,999=n.
+'q:000,000;000,999;000,999=n.
+'q:999,999;000,999;000,999=n.
+'normal@world
+q:000,999;000,999;000,000=b.
+q:000,999;000,999;001,098=e.
+q:000,483;000,999;099,099=n.
+q:520,530;520,530;100,110=s.
+q:520,530;510,519;100,110=h.
+q:485,490;000,999;095,099=w.
+q:500,510;510,520;096,096=l.
+q:492,999;000,999;099,099=g.
+q:484,484;000,999;099,099=d.
+q:491,491;000,999;099,099=d.
+q:500,510;510,520;097,099=@.
+s:"Standard-World@created."
+'volcano
+q:503,507;506,524;096,111=l.
+q:496,514;513,517;096,111=l.
+q:503,507;500,530;100,100=l.
+q:490,518;513,517;100,100=l.
+q:497,513;507,523;096,110=e.
+q:503,507;513,517;096,115=l.
+q:490,491;512,518;099,099=s.
+s:"volcano@created."
+j:020.
+a:177,251.
+p:494,543,113.
+v:2|1.
+'p:500,500,112.
+'waterfalls
+q:485,490;000,401;096,132=w.
+q:000,999;000,400;096,130=s.
+q:000,999;000,400;131,131=b.
+s:"waterfalls@created."
+'
+END
+
+
+
+
+
+
+
+===============================================================================
+                            E X P L A N A T I O N :
+===============================================================================
+
+
+The file must always be named "structinput.txt" for the world
+to be loaded in the program!
+
+
+
+'Comment
+^
+|
+\--Comment             Material (see below)
+                          |
+                          v
+q:485,490;000,401;096,132=w.
+^  ^   ^   ^   ^   ^   ^   ^
+|  |   |   |   |   |   |   |
+|  | Max-x | Max-y | Max-z |
+|  |       |       |       |
+| Min-x  Min-y   Min-z   End of line
+|
+\--Rectangular prism creation
+ \-(Every number here has ALWAYS 3 digits!)
+
+
+ new value
+   |
+   v
+j:020.
+^    ^
+|    |
+|  end of line
+|
+\--Change Jumping length
+
+
+'j:123.
+^
+|
+\--deactivated command line
+
+
+    /    T e x t    \
+   /                 \
+s:"waterfalls created."
+^
+|
+\--Text output
+
+
+ new x   new z
+   |       |
+   v       v
+p:500,500,112.
+^      ^     ^
+|      |     |
+|    new y   \--end of line
+|
+\--setting new position
+
+
+END   <---End of commands. Program quits using the file here.
+          After that it can come anything without affecting the program
+
+
+===============================================================================
+         T A B L E S  /  A D D I T I O N A L   I N F O R M A T I O N :
+===============================================================================
+
+     Structure of command lines:
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     
+     Every command does not have specific characters everywhere.
+     There are special structures for the commands.
+     Explanation of structure list:
+     - * means any string can come and will not cunfuse the program
+         (can also be empty)
+     - ? is a placeholder for one character that is for better view but
+         must be any character.
+     - # is one digit of a three-digit-number that gives a value to the program
+     - A-Z, a-z (letter) is the letter shown to perform the specific command
+     - % is any character except q, s, p or j (mostly ' is used)
+     - @ is a material-specific character (see list below)
+     
+     Create rectangular prism:		q?###?###?###?###?###?###?@*
+     Print out string on screen:	s??*?
+     Change position:			p?###?###?###*
+     Change jumping length:		j?###*
+     Comment:				%*
+     End of command list:		END
+
+
+     Material index list:
+     ~~~~~~~~~~~~~~~~~~~~
+     
+
+     Specific
+     Character	Material
+     --------------------
+     ' '	Air
+     'h'	Wood
+     's'	Stone
+     'e'	Earth
+     'g'	Grass
+     'w'	Water
+     'l'	Lava
+     'n'	Snow
+     'd'	Sand
+     'b'	Solid
+
+
+
+
+Ascii 3D (c) Jannik Hofmann 2013

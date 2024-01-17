@@ -1,0 +1,302 @@
+/* add custom font imports here */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* add your own manual css definitions here */
+:root {
+	/* --test: #175070; */
+	/* use as [color:var(--test)] */
+}
+html {
+	scroll-behavior: smooth;
+}
+.empty-space { @apply invisible -z-50 pointer-events-none block }
+
+a { outline: none !important; }
+.always-hidden { display: none !important; }
+
+::-moz-selection { /* Code for Firefox */ @apply text-white bg-[rgba(25,32,120,1)] }
+
+::selection { @apply text-white bg-[rgba(25,32,120,1)] }
+
+details summary, details summary h4 { @apply underline cursor-pointer }
+details[open] summary, details.is--open summary, details[open] summary h4, details.is--open summary h4 { @apply !no-underline }
+/* details summary~* { @apply h-auto transition-all ease-in-out duration-1000; transform: scaleY(0); }
+details[open] summary~*, details.is--open summary~* { transform: scaleY(1); } */
+
+.small-caps { font-variant-caps: small-caps; }
+.break-words { -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; -ms-hyphens: auto; word-break: break-word; }
+
+.trans100 { @apply transition-all ease-linear duration-100 }
+
+.text-shadow { text-shadow: 0 2px 4px rgba(0,0,0,0.10); }
+.text-shadow-md { text-shadow: 0 4px 8px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08); }
+.text-shadow-lg { text-shadow: 0 15px 30px rgba(0,0,0,0.11), 0 5px 15px rgba(0,0,0,0.08); }
+.text-shadow-xl { text-shadow: 0 10px 50px rgba(0,0,0,0.21), 0 5px 20px rgba(0,0,0,0.18); }
+.text-shadow-2xl { text-shadow: 0 10px 50px rgba(0,0,0,0.3), 0 5px 20px rgba(0,0,0,0.3); }
+.text-shadow-none { text-shadow: none; }
+
+.mainpaddingx-wide { @apply px-3 xs:px-6 smm:px-12 mdd:px-16 xl:px-24 }
+.mainpaddingx { @apply px-3 xs:px-6 smm:px-12 mdd:px-[calc((100vw-900px)/2+3rem)] }
+.mainpaddingx-remove { @apply -mx-3 xs:-mx-6 smm:-mx-12 mdd:-mx-[calc((100vw-900px)/2+3rem)] }
+.mainpaddingx-wide-remove { @apply -mx-3 xs:-mx-6 smm:-mx-12 mdd:-mx-16 xl:-mx-24 }
+.sm-mainpaddingx { @apply sm:px-12 mdd:px-[calc((100vw-900px)/2+3rem)] }
+.right-mainpaddingx { @apply right-3 xs:right-6 smm:right-12 mdd:right-[calc((100vw-900px)/2+3rem)] }
+.right-sm-mainpaddingx { @apply sm:right-12 mdd:right-[calc((100vw-900px)/2+3rem)] }
+.right-lg-mainpaddingx { @apply lg:right-[calc((100vw-900px)/2+3rem)] }
+.right-mainpaddingx-wide { @apply right-3 xs:right-6 smm:right-12 mdd:right-16 xl:right-24 }
+.right-sm-mainpaddingx-wide { @apply sm:right-12 mdd:right-16 xl:right-24 }
+.right-lg-mainpaddingx-wide { @apply lg:right-16 xl:right-24 }
+.mainarea-p0 { @apply min-h-[calc(100vh-(10rem+4.5rem+40rem)/4)] sm:min-h-[calc(100vh-(10rem+4.5rem+28rem)/4)] lg:min-h-[calc(100vh-(10rem+4.5rem+12rem)/4)] -mt-1.5 }
+.mainarea { @apply mainarea-p0 mainpaddingx py-6 }
+.mainarea-wide { @apply mainarea-p0 mainpaddingx-wide py-6 }
+
+@supports not (mix-blend-mode: screen) {
+	.anaglyph-white { color: white; }
+}
+@supports (mix-blend-mode: screen) {
+	.anaglyph-white, .anaglyph-white:after, .anaglyph-white:before { @apply transition-all ease-in-out duration-300 }
+	.anaglyph-white {
+		position: relative;
+		color: rgba(0,255,0, 1) !important;
+		opacity: 0.7;
+	}
+	.anaglyph-white:before, .anaglyph-white:after {
+		position: absolute;
+		top: 0;
+		mix-blend-mode: screen;
+	}
+	.anaglyph-white:before {
+		color: rgba(255,0,0, 1);
+	}
+	.anaglyph-white:after {
+		color: rgba(0,0,255, 1);
+	}
+	.anaglyph-white:before { content: attr(before); left: 0; }
+	.anaglyph-white:after { content: attr(after); right: 0;	}
+	.anaglyph-white:hover, .anaglyph-white:active {
+		margin-left: 0px;
+		margin-top: 0px;
+		opacity: 0.9;
+	}
+	.anaglyph-white:hover:before, .anaglyph-white:active:before {
+		/* transform: rotate(-1deg); */
+		font-size: 0.99em;
+		left: -0.2em;
+		top: -0.1em;
+	}
+	.anaglyph-white:hover:after, .anaglyph-white:active:after {
+		/* transform: rotate(2deg) skew(-10deg, 1deg); */
+		font-size: 0.99em;
+		right: -0.2em;
+		top: 0.1em;
+	}
+}
+.headerlogo {
+	@apply font-bold uppercase tracking-wider border-b border-slate-700 hover:border-slate-600 active:border-slate-600 text-lg shadow-sm hover:shadow text-[rgba(255,255,255,0.7)] hover:text-[rgba(255,255,255,0.9)] active:text-[rgba(255,255,255,0.9)]
+} /* deactivated anaglyph-white */
+
+.footer a span { @apply underline decoration-solid decoration-primary-400 }
+.footer a:hover span, .footer a:active span { @apply underline decoration-solid decoration-primary-300 }
+.footer a:hover, .footer a:active { @apply text-white }
+/* .footer a:hover div { @apply shadow-inner-md } */
+.footer a span, .footer a { @apply transition ease-in-out duration-200 }
+.footer > div:first-child:hover ~ a, .footer > div:first-child:active ~ a { @apply text-white }
+
+.backlink { @apply absolute pb-3 pt-7 w-full mainpaddingx z-10 text-white text-opacity-60 hover:text-opacity-100 active:text-opacity-100 uppercase text-base bg-black tracking-wider bg-opacity-0 hover:bg-opacity-25 active:bg-opacity-25 }
+
+.pill-link { @apply inline-block rounded-full border-slate-400 text-slate-600 hover:bg-[rgba(0,0,32,0.1)] hover:border-slate-400 hover:text-slate-700 border-2 active:border-slate-400 active:text-slate-800 active:bg-slate-400 px-2 pb-[0.18rem] ml-1 transition-all ease-linear duration-[50ms] cursor-pointer }
+.pill-link.active { @apply border-[rgba(0,0,32,0)] text-slate-700 bg-[rgba(0,0,32,0.2)] cursor-default }
+.nicer-scrollbar { scrollbar-color: rgba(0,0,0,0.2) rgba(0,0,0,0.1); }
+.nicer-scrollbar::-webkit-scrollbar { height: 10px; }
+.nicer-scrollbar::-webkit-scrollbar-track { background: rgba(0,0,0,0.1); border-radius: 100px; }
+.nicer-scrollbar::-webkit-scrollbar-thumb { background-color: rgba(0,0,0,0.2); border-radius: 100px; }
+.nicer-scrollbar::-moz-scrollbar { height: 10px; }
+.nicer-scrollbar::-moz-scrollbar-track { background: rgba(0,0,0,0.1); border-radius: 100px; }
+.nicer-scrollbar::-moz-scrollbar-thumb { background-color: rgba(0,0,0,0.2); border-radius: 100px; }
+
+/* pills connected in the middle into one long pill
+.pill-link {
+	@apply inline-block border-gray-400 text-gray-500 hover:border-gray-500 hover:text-gray-600 border-2 active:border-gray-800 active:text-black active:bg-gray-300 hover:z-10 z-0 active:z-10 px-2 pb-[0.2rem] -ml-[calc(0.25rem+1.5px)] transition-all ease-linear duration-100 cursor-pointer
+}
+.pill-link:first-child {
+	@apply rounded-l-full ml-1
+}
+.pill-link:last-child {
+	@apply rounded-r-full
+}
+.pill-link.active {
+	@apply z-10 border-gray-600 text-gray-700 bg-gray-300 cursor-default
+}*/
+
+.cardgrid { @apply mt-8 grid gap-8 sm:gap-6 sm:grid-cols-2 mdd:grid-cols-3 lgg:grid-cols-4 } /* 2xl:grid-cols-5 */
+.cardgrid.byrelevance .cardcontainer { @apply !order-1 }
+/* with md:navigation on left third:
+sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 */
+.card { @apply h-auto bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl active:shadow-xl relative transform transition ease-in-out duration-100 hover:text-black hover:scale-102 hover:bg-white active:text-black active:scale-102 active:bg-white xs:grid xs:grid-cols-2 sm:grid-cols-none }
+.card > img:first-child { @apply w-full max-h-32 sm:max-h-full xs:w-full xs:h-0 xs:min-h-full sm:min-h-0 sm:h-48 object-cover overflow-hidden transform transition ease-in-out duration-100 shadow-inner }
+.card:hover > img:first-child { @apply brightness-105 }
+.card > div:first-of-type { @apply p-4 pt-2 h-auto !bg-opacity-0 }
+.card:hover > div, .card:active > div { @apply bg-opacity-0 }
+.card > div span:first-of-type { @apply font-bold }
+.card:hover > div span:first-of-type, .card:active > div span:first-of-type { @apply text-black }
+.card > div span:last-of-type { @apply block text-gray-500 text-sm italic mt-1 }
+
+.line-behind { display: table; white-space: nowrap; }
+.line-behind::before, .line-behind::after { border-top: 1px solid white; content: ''; display: table-cell; position: relative; top: 0.5em; width: 45%; }
+.line-behind::before { right: 1.5%; }
+.line-behind::after { left: 1.5%; }
+
+.pagetitle { @apply border-slate-400 border-b text-primary-700 text-opacity-80 text-5xl mb-5 pb-1 small-caps }
+
+.text > p {
+	@apply mb-4
+}
+
+.enhancedimg:after {
+	@apply content-empty absolute bg-gradient-to-b from-transparent to-[#22000044] inset-0 mix-blend-overlay
+}
+.enhancedimg-hue:after {
+	@apply content-empty absolute bg-gradient-to-b from-[#00002244] to-[#22000044] inset-0 mix-blend-hue
+}
+.blend-overlay-text {
+	@apply absolute top-[20vh] left-0 text-6xl font-black uppercase text-[red] w-full text-center skew-x-6 rotate-6 mix-blend-saturation opacity-40
+}
+
+.badge, .hiddenbadge { @apply text-white bg-gray-800 text-xs font-bold rounded-br-lg !p-2 !pt-1 absolute top-0 max-h-6 shadow-sm opacity-70 transition ease-in-out duration-150 !bg-opacity-100 }
+.hiddenbadge { @apply opacity-0 }
+div:hover > .hiddenbadge, div:active > .hiddenbadge { opacity: 0.8 !important}
+.button-old { @apply rounded-full py-2 px-3 uppercase font-bold cursor-pointer tracking-wider hover:bg-red-200 active:bg-red-200 transition ease-out duration-150 transform hover:scale-125 active:scale-125 }
+.main-button-old { @apply w-auto text-lg text-center font-bold rounded-full py-2 px-3 cursor-pointer tracking-wide bg-primary-500 hover:bg-primary-600 active:bg-primary-600 text-slate-100 transition ease-out duration-150 transform hover:scale-101 active:scale-101 shadow-md hover:shadow-xl active:shadow-xl }
+.button { @apply py-2 my-2 min-h-[2.75rem] w-fit px-5 rounded-full shadow-md hover:shadow-lg active:shadow-xl text-center }
+
+.careernav ul li, .footernav ul li {
+	@apply relative my-2 inline-block transition ease-in-out duration-200 /* underline underline-offset-4 hover:decoration-double active:decoration-double */
+}
+.careernav ul li {
+	@apply my-2
+}
+.footernav ul li {
+	@apply my-0
+}
+.careernav ul li a, .footernav ul li a {
+	@apply text-[rgba(255,255,255,0.7)] hover:text-white active:text-white transition-all ease-linear duration-100
+}
+.careernav ul li div, .footernav ul li div {
+	@apply px-[1.2rem] py-1
+}
+.careernav ul li a div:before, .footernav ul li a div:before {
+	@apply transition-all ease-linear duration-100;
+    content: "";
+    position: absolute;
+    height: 1px;
+}
+.careernav ul li a div:before {
+	width: calc(80%-2*1rem);
+    bottom: 0;
+    left: calc(10%+1rem);
+	border-bottom: 1px solid rgba(255,255,255,0.7);
+}
+.footernav ul li a div:before {
+	width: calc(100%-2*1.3rem);
+    bottom: 0.4rem;
+    left: calc(0%+1.3rem);
+	border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+.careernav ul li:hover a div:before, .careernav ul li:active a div:before {
+    width: calc(100%-2*1rem);
+    left: 1rem;
+	bottom: 0.03rem;
+	border-bottom: 1px solid rgba(255,255,255,1);
+}
+.footernav ul li:hover a div:before, .footernav ul li:active a div:before {
+	border-bottom: 1px solid rgba(255,255,255,1);
+    /* width: calc(90%-2*1rem);
+    left: calc(5%+1rem); */
+}
+
+.posterdiv {
+	@apply w-full flex justify-center mt-16 -mb-6 max-h-[calc(max(100vh-4rem,100vh*0.8,15rem))]
+}
+@media screen and (min-aspect-ratio: 1.1) and (min-width: 30em) and (max-height: 55em) {
+	.posterdiv {
+		@apply mr-6 mt-4 mb-4 float-left !w-auto !justify-start
+	}
+}
+
+body.career #projects h2.pagetitle, body.career #projects .intro {
+	@apply text-center not-italic
+}
+
+body.career #education ul, body.career #experience ul { @apply -ml-1 xs:ml-3 }
+body.career #education ul li, body.career #experience ul li { @apply py-8 ml-[1.33rem] relative transition ease-linear duration-100 }
+body.career #education ul > details summary, body.career #experience ul > details summary { @apply pl-[1.3rem] tracking-wide w-fit no-underline }
+body.career #education ul > details summary:hover, body.career #experience ul > details summary:hover { @apply pl-[1.3rem] tracking-wide w-fit no-underline border-dotted }
+body.career #education ul > details.is--open summary, body.career #education ul > details[open] summary, body.career #experience ul > details.is--open summary, body.career #experience ul > details[open] summary { @apply border-none }
+body.career #education ul details:last-child, body.career #education ul li:last-child, body.career #education ul details li:last-child, body.career #experience ul details:last-child, body.career #experience ul li:last-child, body.career #experience ul details li:last-child { @apply pb-0 }
+body.career #education ul li .underline, body.career #experience ul li .underline { @apply transition-all ease-linear duration-100 }
+body.career #education ul li:before, body.career #experience ul li:before { @apply absolute -ml-7 mt-6 }
+body.career #education ul li .dates, body.career #experience ul li .dates { @apply font-mono }
+body.career #education ul li h4, body.career #experience ul li h4 { @apply font-bold -mt-1 text-lg xs:tracking-wide sm:tracking-wider }
+body.career #education ul li .uni, body.career #experience ul li .uni { @apply block font-serif }
+body.career #education ul li .grade, body.career #experience ul li .grade { @apply block font-sans mt-2 }
+.gradeval { @apply font-semibold }
+body.career #education ul li .grade span, body.career #experience ul li .grade span { @apply font-sans }
+body.career #education ul li .subject, body.career #experience ul li .subject { @apply block italic }
+body.career #education ul li .additional, body.career #experience ul li .additional { @apply block font-semibold }
+body.career #education ul li .additional .small-caps, body.career #experience ul li .additional .small-caps { @apply font-bold }
+body.career #education ul li .focus, body.career #experience ul li .focus { @apply block italic font-light }
+body.career #education ul li .thesis, body.career #experience ul li .thesis { @apply block font-light mt-3 }
+body.career #education ul li .link, body.career #experience ul li .thesis { @apply block }
+body.career #education ul li .explanation, body.career #experience ul li .explanation { @apply block italic font-light }
+/* specific colors only for #education */
+body.career #education ul li:before { content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' color='rgb(255,227,17)' width='12' height='12' viewBox='-1 -1 2 2' style='fill:currentColor;'><circle r='1' /></svg>"); }
+body.career #education ul { @apply border-l-2 border-accent }
+body.career #education ul > details summary { @apply text-mdd border-b-[1px] border-dashed border-accent-500 }
+body.career #education ul li:hover, body.career #education ul li:active { @apply text-stone-100 }
+body.career #education ul li .underline { @apply decoration-[rgba(255,255,255,0.5)] }
+body.career #education ul li:hover .underline, body.career #education ul li:active .underline { @apply text-white decoration-white decoration-[1.1px] }
+body.career #education ul li:before { @apply text-yellow-500 }
+/* specific colors only for #experience */
+body.career #experience ul li:before { content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' color='rgb(56,85,127)' width='12' height='12' viewBox='-1 -1 2 2' style='fill:currentColor;'><circle r='1' /></svg>"); }
+body.career #experience ul { @apply border-l-2 border-xslate-600 }
+body.career #experience ul > details summary { @apply text-mdd border-b-[1px] border-dashed border-xslate-600 }
+body.career #experience ul li:hover, body.career #experience ul li:active { @apply text-gray-900 }
+body.career #experience ul li .underline { @apply decoration-[rgba(0,0,0,0.5)] }
+body.career #experience ul li:hover .underline, body.career #experience ul li:active .underline { @apply text-black decoration-black decoration-[1.1px] }
+body.career #experience ul li:before { @apply text-yellow-600 }
+
+
+/* fix career teaser for very wide screens: */
+@media screen and ((max-width: 640px) and (max-height: 30em)), screen and ((min-width: 640px) and (max-height: 25em)), screen and ((min-width: 768px) and (max-height: 27em)) {
+	body.career header.fixed {
+		position: absolute !important;
+	}
+	body.career #aboutme {
+		top: 0 !important;
+	}
+}
+
+/* 3D parallax */
+.bodycontainer {
+	@apply w-screen h-screen overflow-scroll;
+	perspective: 100px;
+}
+.preserve-3d {
+	transform-style: preserve-3d;
+}
+.parallax-container {
+	transform-style: preserve-3d;
+	/* height: 100vh; */
+	position: relative;
+}
+.parallax-container {
+	z-index: -1;
+}
+.parallax {
+	@apply inset-0 absolute;
+	transform: translateZ(-100px) scale(2);
+	background-size: cover;
+}
